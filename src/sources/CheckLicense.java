@@ -178,7 +178,8 @@ public class CheckLicense extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(CheckLicense.this, "<html><b>Registeration Completed Succesfully</b><br>", "License Check", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("VALID LICENSE");
                 this.dispose();
-                new NewJFrame().setVisible(true);
+                new Createlogin().setVisible(true);
+                
             } else {
                 JOptionPane.showMessageDialog(CheckLicense.this, "INVALID LICENSE", "License Error", JOptionPane.ERROR_MESSAGE);
                 System.exit(0);

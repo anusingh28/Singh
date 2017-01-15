@@ -21,6 +21,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -38,11 +39,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.TimerTask;
 import java.util.TreeMap;
 import java.util.Vector;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.LineUnavailableException;
@@ -69,8 +68,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import org.jdesktop.swingx.JXLabel;
 import org.jdesktop.swingx.JXTable;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -157,7 +155,7 @@ public class MyMain extends javax.swing.JFrame {
     private boolean bMortgage;
     public static boolean bDelayCompleted = false;
     public static boolean bDelayIn = false;
-    public static  Lock _mutex ;
+  
     private String sAfterCheckingLastUsed="";
 
     /**
@@ -165,14 +163,14 @@ public class MyMain extends javax.swing.JFrame {
      */
     public MyMain() throws UnsupportedAudioFileException, IOException, LineUnavailableException, InterruptedException {
 
-        _mutex = new ReentrantLock(true);
+
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setBounds(0, 0, screenSize.width, screenSize.height);
         System.out.println(getClass().getResource("/img/2admin.png"));
         java.util.Timer timer = new java.util.Timer();
         // timer.scheduleAtFixedRate(new update_items_and_labour(), new Date(), Long.parseLong("5000"));
         initComponents();
-
+       
         timer.scheduleAtFixedRate(new Task2(), new Date(), Long.parseLong("240000"));//("2592000000"));
 
         //Thread th = new Thread(new update_items_and_labour(), "ITEM_THREAD");
@@ -196,7 +194,7 @@ public class MyMain extends javax.swing.JFrame {
         jXPanel14 = new org.jdesktop.swingx.JXPanel();
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
         jXLabel9 = new org.jdesktop.swingx.JXLabel();
-        jXLabel3 = new org.jdesktop.swingx.JXLabel();
+        jXLabel_Welcome_Name = new org.jdesktop.swingx.JXLabel();
         jXLabel4 = new org.jdesktop.swingx.JXLabel();
         jXButton_not = new org.jdesktop.swingx.JXButton();
         ImageIcon icon = new ImageIcon(this.getClass().getResource("/img/AD2.png"));
@@ -323,7 +321,7 @@ public class MyMain extends javax.swing.JFrame {
         jButton_cust_act = new javax.swing.JButton();
         jLabel_Customer_Active = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setForeground(new java.awt.Color(255, 0, 0));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -355,10 +353,10 @@ public class MyMain extends javax.swing.JFrame {
         });
         t.start();
 
-        jXLabel3.setBackground(new java.awt.Color(255, 244, 191));
-        jXLabel3.setText("Welcome, Admin");
-        jXLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jXLabel3.setOpaque(true);
+        jXLabel_Welcome_Name.setBackground(new java.awt.Color(255, 244, 191));
+        jXLabel_Welcome_Name.setText("Welcome, Admin");
+        jXLabel_Welcome_Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jXLabel_Welcome_Name.setOpaque(true);
 
         jXLabel4.setBackground(new java.awt.Color(255, 244, 191));
         jXLabel4.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\2admin.png")); // NOI18N
@@ -384,7 +382,7 @@ public class MyMain extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jXButton_not, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jXLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jXLabel_Welcome_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jXLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -394,7 +392,7 @@ public class MyMain extends javax.swing.JFrame {
             jXPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jXLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jXLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jXLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jXLabel_Welcome_Name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jXButton_not, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jXLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
@@ -935,8 +933,8 @@ public class MyMain extends javax.swing.JFrame {
         jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel10Layout.createSequentialGroup()
             .addGap(48, 48, 48)
-            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(77, Short.MAX_VALUE))
+            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     jTabbedPane_Reminders.addTab("   GIRVI   ", jPanel10);
@@ -966,7 +964,7 @@ public class MyMain extends javax.swing.JFrame {
         jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel11Layout.createSequentialGroup()
             .addGap(48, 48, 48)
-            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -981,8 +979,8 @@ public class MyMain extends javax.swing.JFrame {
     jPanel9Layout.setVerticalGroup(
         jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel9Layout.createSequentialGroup()
-            .addComponent(jTabbedPane_Reminders, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(0, 345, Short.MAX_VALUE))
+            .addComponent(jTabbedPane_Reminders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 264, Short.MAX_VALUE))
     );
 
     jTabbedPane2.addTab(" Reminders ", jPanel9);
@@ -1202,6 +1200,11 @@ public class MyMain extends javax.swing.JFrame {
             jTextField_Total_AmountMouseClicked(evt);
         }
     });
+    jTextField_Total_Amount.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            jTextField_Total_AmountFocusLost(evt);
+        }
+    });
 
     jComboBox_Tx_Types.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----", "SELL", "PURCHASE", "MORTRAGE" }));
     jComboBox_Tx_Types.addActionListener(new java.awt.event.ActionListener() {
@@ -1229,6 +1232,11 @@ public class MyMain extends javax.swing.JFrame {
     jLabel7.setText("Interest");
 
     jTextField_Interest.setToolTipText("First Enter UserID OR Mobile");
+    jTextField_Interest.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            jTextField_InterestFocusLost(evt);
+        }
+    });
 
     jButton_Clear.setBackground(new java.awt.Color(102, 163, 224));
     jButton_Clear.setBorder(null);
@@ -1242,10 +1250,25 @@ public class MyMain extends javax.swing.JFrame {
     jLabel8_debt.setText("Debt :");
 
     //jTextField_Debt.setToolTipText("First Enter UserID OR Mobile");
+    jTextField_Debt.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            jTextField_DebtFocusLost(evt);
+        }
+    });
 
     jTextField_Rate_For_TxRx.setToolTipText("First Enter UserID OR Mobile");
+    jTextField_Rate_For_TxRx.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            jTextField_Rate_For_TxRxFocusLost(evt);
+        }
+    });
 
     jTextField_weight.setToolTipText("First Enter UserID OR Mobile");
+    jTextField_weight.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            jTextField_weightFocusLost(evt);
+        }
+    });
 
     jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Gms", "Kgs" }));
     jComboBox4.addActionListener(new java.awt.event.ActionListener() {
@@ -1318,6 +1341,12 @@ public class MyMain extends javax.swing.JFrame {
     jLabel9.setText("In %");
 
     jLabel_Labour_charge.setText("Labour Charge :");
+
+    jTextField_Labour_charge.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            jTextField_Labour_chargeFocusLost(evt);
+        }
+    });
 
     jLabel10.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\pais.png")); // NOI18N
 
@@ -1566,6 +1595,9 @@ public class MyMain extends javax.swing.JFrame {
                         jXTable_Tx_Table.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());
                         jXTable_Tx_Table.setShowGrid(true);
                         jScrollPane1.setViewportView(jXTable_Tx_Table);
+                        if (jXTable_Tx_Table.getColumnModel().getColumnCount() > 0) {
+                            jXTable_Tx_Table.getColumnModel().getColumn(0).setPreferredWidth(5);
+                        }
 
                         jXButton1.setBackground(new java.awt.Color(255, 255, 255));
                         jXButton1.setBorder(null);
@@ -1973,6 +2005,8 @@ public class MyMain extends javax.swing.JFrame {
             }
 
             dt.addRow(ob);
+            jButton_Clear.doClick();
+            
             //}
         } else {
             JOptionPane.showMessageDialog(this.getComponent(0), "Please Enter Data");
@@ -2031,7 +2065,7 @@ public class MyMain extends javax.swing.JFrame {
         // TODO add your handling code here:
         JComboBox jc = (JComboBox) evt.getSource();
         System.out.println("jcombio");
-        if(jc.getSelectedItem().toString().equalsIgnoreCase("other"))
+        if(jc.getSelectedItem().toString().equalsIgnoreCase("New Item"))
         {
              this.setVisible(false);
              StocksAndLabour.iClass = this;
@@ -2152,7 +2186,8 @@ public class MyMain extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // try {
         // TODO add your handling code here:
-        if (!bCustomer_Active) {
+        if (!bCustomer_Active) 
+        {
             System.out.println(jTextField_UserID.getText());
             int flag;
             Customer c = new Customer();
@@ -2749,6 +2784,14 @@ public class MyMain extends javax.swing.JFrame {
         jTextField_Total_Amount.setText("");
         jTextField_Interest.setText("");
         jTextField_Debt.setText("0");
+        jTextField_weight.setText("");
+            jTextField_Labour_charge.setText("");
+            
+            jRadioButton_remend_debt_cust.setSelected(false);
+            jRadioButton_remend_debt_norm.setSelected(false);
+            jRadioButton_remend_mort_cust.setSelected(false);
+            jRadioButton_remend_mort_norm.setSelected(false);
+        
     }//GEN-LAST:event_jButton_ClearActionPerformed
 
     private void jButton_cust_actActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cust_actActionPerformed
@@ -2887,7 +2930,8 @@ public class MyMain extends javax.swing.JFrame {
                 System.out.println("*******" + String.valueOf(i));
                 int j = 0;
                 while (j < dbdata[0].size()) {
-                    dt.addRow((Vector) dbdata[0].get(j));
+                    if(!dbdata[0].get(j).toString().contains("New Item"))
+                        dt.addRow((Vector) dbdata[0].get(j));
                     j++;
                 }
             }
@@ -2952,16 +2996,22 @@ public class MyMain extends javax.swing.JFrame {
             int iRet = JOptionPane.showConfirmDialog(MyMain.this, "<html><b>modification Detected</b><br><br>Want to update ?</html>", "Stock Update", JOptionPane.INFORMATION_MESSAGE);
             if (iRet == 0) {
 
-                for (int a = 0; a < updatedIndexes.length; a++) {
+                for (int a = 0; a < updatedIndexes.length; a++) 
+                {
                     int idx = updatedIndexes[a];
-                    String sn = tableModel.getValueAt(idx, 0).toString();
+                    
                     String items = tableModel.getValueAt(idx, 1).toString();
-                    String labour = tableModel.getValueAt(idx, 2).toString();
-                    String stamp = tableModel.getValueAt(idx, 3).toString();
-                    System.out.println(sn + items + labour + stamp);
-                    String sq = "UPDATE stocks SET `Items`=" + "'" + items + "'" + ", " + "`labour`=" + "'" + labour + "'" + ", " + "`stamp`=" + "'" + stamp + "'" + "  WHERE SN=" + "'" + sn + "'";
-                    SqlQuery qe = new SqlQuery();
-                    System.out.println(qe.InsertData(sq));
+                    if(!items.equalsIgnoreCase("other")){
+                        String sn = tableModel.getValueAt(idx, 0).toString();
+                        String labour = tableModel.getValueAt(idx, 2).toString();
+                        String stamp = tableModel.getValueAt(idx, 3).toString();
+                        System.out.println(sn + items + labour + stamp);
+                        String sq = "UPDATE stocks SET `Items`=" + "'" + items + "'" + ", " + "`labour`=" + "'" + labour + "'" + ", " + "`stamp`=" + "'" + stamp + "'" + "  WHERE SN=" + "'" + sn + "'";
+                        SqlQuery qe = new SqlQuery();
+                        System.out.println(qe.InsertData(sq));
+                    }
+                    else
+                        JOptionPane.showMessageDialog(MyMain.this,"<html><b>You can't change/modify this item</b><br><br>" , "Stock Update", JOptionPane.WARNING_MESSAGE);
                 }
             }
         }
@@ -3089,8 +3139,76 @@ public class MyMain extends javax.swing.JFrame {
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
         CheckLicense.sLastUsed = new SimpleDateFormat("dd-MMM-yyyy").format(new Date());
+        try {
+            WinRegistry.writeStringValue(WinRegistry.HKEY_LOCAL_MACHINE, "SOFTWARE\\MYLIC\\sub", "lastused", CheckLicense.sLastUsed);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(MyMain.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(MyMain.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
+            Logger.getLogger(MyMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.out.println("Close Time is captured: "+CheckLicense.sLastUsed);
     }//GEN-LAST:event_formWindowClosed
+
+    private void jTextField_weightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_weightFocusLost
+        // TODO add your handling code here:
+        if( !jTextField_Rate_For_TxRx.getText().isEmpty() && !jTextField_weight.getText().matches("\\d+(\\.\\d+)?"))
+        {
+             JOptionPane.showMessageDialog(MyMain.this, "Incorrect data for Weight", "Invalid Weight", JOptionPane.WARNING_MESSAGE);
+            jTextField_weight.setText("");
+            jTextField_weight.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_jTextField_weightFocusLost
+
+    private void jTextField_Rate_For_TxRxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Rate_For_TxRxFocusLost
+        // TODO add your handling code here:
+        if( !jTextField_Rate_For_TxRx.getText().isEmpty() && !jTextField_Rate_For_TxRx.getText().matches("^\\d+$"))
+        {
+             JOptionPane.showMessageDialog(MyMain.this, "Incorrect data for Rate", "Invalid Rate", JOptionPane.WARNING_MESSAGE);
+            jTextField_Rate_For_TxRx.setText("");
+            jTextField_Rate_For_TxRx.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_jTextField_Rate_For_TxRxFocusLost
+
+    private void jTextField_Labour_chargeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Labour_chargeFocusLost
+        // TODO add your handling code here:
+         if( !jTextField_Labour_charge.getText().isEmpty() &&  !jTextField_Labour_charge.getText().matches("^\\d+$"))
+        {
+             JOptionPane.showMessageDialog(MyMain.this, "Incorrect data for Labour Charge", "Invalid Labour Charge", JOptionPane.WARNING_MESSAGE);
+            jTextField_Labour_charge.setText("");
+            jTextField_Labour_charge.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_jTextField_Labour_chargeFocusLost
+
+    private void jTextField_InterestFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_InterestFocusLost
+        // TODO add your handling code here:
+         if(  !jTextField_Interest.getText().isEmpty() && !jTextField_Interest.getText().matches("\\d+(\\.\\d+)?"))
+        {
+             JOptionPane.showMessageDialog(MyMain.this, "Incorrect data for Interest", "Invalid Interest", JOptionPane.WARNING_MESSAGE);
+            jTextField_Interest.setText("");
+            jTextField_Interest.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_jTextField_InterestFocusLost
+
+    private void jTextField_DebtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_DebtFocusLost
+        // TODO add your handling code here:
+         if( !jTextField_Debt.getText().isEmpty() && !jTextField_Debt.getText().matches("^\\d+$"))
+        {
+             JOptionPane.showMessageDialog(MyMain.this, "Incorrect data for Debt", "Invalid Debt", JOptionPane.WARNING_MESSAGE);
+            jTextField_Debt.setText("");
+            jTextField_Debt.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_jTextField_DebtFocusLost
+
+    private void jTextField_Total_AmountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Total_AmountFocusLost
+        if( !jTextField_Total_Amount.getText().isEmpty() && !jTextField_Total_Amount.getText().matches("^\\d+$"))
+        {
+             JOptionPane.showMessageDialog(MyMain.this, "Incorrect data for jTextField_Total_Amount", "Invalid Amount", JOptionPane.WARNING_MESSAGE);
+            jTextField_Total_Amount.setText("");
+            jTextField_Total_Amount.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_jTextField_Total_AmountFocusLost
 
     private void jmenuActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
@@ -3133,6 +3251,7 @@ public class MyMain extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
+                    
                     new MyMain().setVisible(true);
                 } catch (Exception ex) {
                     System.out.println(ex);
@@ -3162,7 +3281,7 @@ public class MyMain extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox_userID;
     private javax.swing.JComboBox jComboBox4;
     public static javax.swing.JComboBox jComboBox_Items_List;
-    private javax.swing.JComboBox jComboBox_Tx_Types;
+    public static javax.swing.JComboBox jComboBox_Tx_Types;
     private com.toedter.calendar.JDateChooser jDatechoose_rate_Date;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -3212,7 +3331,7 @@ public class MyMain extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane_Reminders;
     public static javax.swing.JTextField jTextField_Debt;
     public static javax.swing.JTextField jTextField_Interest;
-    private static javax.swing.JTextField jTextField_Labour_charge;
+    public static javax.swing.JTextField jTextField_Labour_charge;
     private javax.swing.JTextField jTextField_Mobile;
     public static javax.swing.JTextField jTextField_Rate_For_TxRx;
     public static javax.swing.JTextField jTextField_Total_Amount;
@@ -3223,13 +3342,13 @@ public class MyMain extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXButton jXButton5;
     public static org.jdesktop.swingx.JXButton jXButton_not;
     private org.jdesktop.swingx.JXLabel jXLabel1;
-    private org.jdesktop.swingx.JXLabel jXLabel3;
     private org.jdesktop.swingx.JXLabel jXLabel4;
     private org.jdesktop.swingx.JXLabel jXLabel5;
     private org.jdesktop.swingx.JXLabel jXLabel6;
     private org.jdesktop.swingx.JXLabel jXLabel7;
     private org.jdesktop.swingx.JXLabel jXLabel8;
     private org.jdesktop.swingx.JXLabel jXLabel9;
+    private org.jdesktop.swingx.JXLabel jXLabel_Welcome_Name;
     private org.jdesktop.swingx.JXLabel jXLabel_exp_date;
     private org.jdesktop.swingx.JXPanel jXPanel1;
     private org.jdesktop.swingx.JXPanel jXPanel10;
@@ -3255,7 +3374,7 @@ public class MyMain extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXTable jXTable_Mortgage;
     private org.jdesktop.swingx.JXTable jXTable_PURCHASE;
     private org.jdesktop.swingx.JXTable jXTable_SELL;
-    private org.jdesktop.swingx.JXTable jXTable_Stocks;
+    public static org.jdesktop.swingx.JXTable jXTable_Stocks;
     private org.jdesktop.swingx.JXTable jXTable_Tx_Table;
     private org.jdesktop.swingx.JXTextField jXTextField1;
     public org.jdesktop.swingx.JXTextField jXTextField_Emp_Name;
@@ -3975,6 +4094,10 @@ public class MyMain extends javax.swing.JFrame {
 
     public void disable_All() {
 
+        jComboBox_Tx_Types.setEnabled(false);
+        jComboBox_Items_List.setEnabled(false);
+        jTextField_Labour_charge.setEnabled(false);
+        
         bToEnable_jTabbedPane = false;
         jTextField_weight.disable();
         jTextField_Rate_For_TxRx.disable();
@@ -3987,7 +4110,6 @@ public class MyMain extends javax.swing.JFrame {
         jRadioButton_remend_debt_cust.setEnabled(false);
         jLabel_Customer_Active.setVisible(false);
         jButton_cust_act.setVisible(false);
-        jLabel_Labour_charge.setEnabled(false);
         jTextField_Labour_charge.setEnabled(false);
         //   jTextField2.setText("First Enter UserID OR Mobile");
         //   jTextField_Rate_For_TxRx.setText("First Enter UserID OR Mobile");
@@ -3999,6 +4121,11 @@ public class MyMain extends javax.swing.JFrame {
 
     public static void enable_All() {
 
+        jComboBox_Tx_Types.setEnabled(true);
+        jComboBox_Items_List.setEnabled(true);
+        jTextField_Labour_charge.setEnabled(true);
+        
+        
         jTextField_weight.setEnabled(true);
         jTextField_Rate_For_TxRx.setEnabled(true);
         jTextField_Total_Amount.setEnabled(true);

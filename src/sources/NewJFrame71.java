@@ -176,303 +176,215 @@ public  class NewJFrame71 extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
 
         jTextField_f_Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField_f_Name.getDocument().addDocumentListener(new DocumentListener()
-            {
-                @Override
-                public void removeUpdate(DocumentEvent e)
-                {
+        jTextField_f_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField_f_NameFocusLost(evt);
+            }
+        });
 
-                }
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\lname~1.png")); // NOI18N
+        jLabel2.setText("Last Name :");
+        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel2.setOpaque(true);
 
-                @Override
-                public void insertUpdate(DocumentEvent e)
-                {
-                    validateInput(jTextField_f_Name,"[a-zA-Z]+");
-                }
+        jTextField_L_Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextField_L_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField_L_NameFocusLost(evt);
+            }
+        });
 
-                @Override
-                public void changedUpdate(DocumentEvent e) {}
-                // Not needed for plain-text fields
-            });
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\fathe~1.png")); // NOI18N
+        jLabel3.setText("Father's Name :");
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel3.setOpaque(true);
 
-            jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-            jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-            jLabel2.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\lname~1.png")); // NOI18N
-            jLabel2.setText("Last Name :");
-            jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-            jLabel2.setOpaque(true);
+        jTextField_Father_Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextField_Father_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField_Father_NameFocusLost(evt);
+            }
+        });
 
-            jTextField_L_Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-            jTextField_L_Name.getDocument().addDocumentListener(new DocumentListener()
-                {
-                    @Override
-                    public void removeUpdate(DocumentEvent e)
-                    {
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\mob~1.png")); // NOI18N
+        jLabel4.setText("Mobile :");
+        jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel4.setOpaque(true);
 
-                    }
+        jTextField_Vill_Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextField_Vill_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField_Vill_NameFocusLost(evt);
+            }
+        });
 
-                    @Override
-                    public void insertUpdate(DocumentEvent e)
-                    {
-                        validateInput(jTextField_L_Name,"[a-zA-Z]+");
-                    }
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\vilg.png")); // NOI18N
+        jLabel9.setText("Address :");
+        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel9.setOpaque(true);
 
-                    @Override
-                    public void changedUpdate(DocumentEvent e) {} // Not needed for plain-text fields
-                });
+        jTextField_Add_Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-                jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-                jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-                jLabel3.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\fathe~1.png")); // NOI18N
-                jLabel3.setText("Father's Name :");
-                jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-                jLabel3.setOpaque(true);
+        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\villeg.png")); // NOI18N
+        jLabel13.setText("Village :");
+        jLabel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel13.setOpaque(true);
 
-                jTextField_Father_Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-                jTextField_Father_Name.getDocument().addDocumentListener(new DocumentListener()
-                    {
-                        @Override
-                        public void removeUpdate(DocumentEvent e)
-                        {
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\ook.png")); // NOI18N
+        jButton1.setOpaque(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-                        }
+        jDateChooser_Date_of_Joining.setDateFormatString("yyyy.MM.dd");
+        jDateChooser_Date_of_Joining.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jDateChooser_Date_of_Joining.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooser_Date_of_JoiningPropertyChange(evt);
+            }
+        });
 
-                        @Override
-                        public void insertUpdate(DocumentEvent e)
-                        {
-                            validateInput(jTextField_Father_Name,"[a-zA-Z]+");
-                        }
+        jXLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jXLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jXLabel1.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\dateofjoin.png")); // NOI18N
+        jXLabel1.setText("Date of Joining");
+        jXLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jXLabel1.setOpaque(true);
 
-                        @Override
-                        public void changedUpdate(DocumentEvent e) {} // Not needed for plain-text fields
-                    });
+        jXLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jXLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jXLabel2.setForeground(new java.awt.Color(0, 0, 255));
+        jXLabel2.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\emp.png")); // NOI18N
+        jXLabel2.setText("       Employee Details");
+        jXLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jXLabel2.setOpaque(true);
 
-                    jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-                    jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-                    jLabel4.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\mob~1.png")); // NOI18N
-                    jLabel4.setText("Mobile :");
-                    jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-                    jLabel4.setOpaque(true);
+        jXLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jXLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jXLabel3.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\salary.png")); // NOI18N
+        jXLabel3.setText("Salary :");
+        jXLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jXLabel3.setOpaque(true);
 
-                    jTextField_Vill_Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-                    jTextField_Vill_Name.getDocument().addDocumentListener(new DocumentListener()
-                        {
-                            @Override
-                            public void removeUpdate(DocumentEvent e)
-                            {
+        jTextField_Sal_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField_Sal_NameFocusLost(evt);
+            }
+        });
 
-                            }
+        jTextField__emp_Mob_Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextField__emp_Mob_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField__emp_Mob_NameFocusLost(evt);
+            }
+        });
 
-                            @Override
-                            public void insertUpdate(DocumentEvent e)
-                            {
-                                validateInput(jTextField_Vill_Name,"^[a-zA-Z]+\\s+[a-zA-Z].*$");
-                            }
+        jButton4.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\ccccl.png")); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
-                            @Override
-                            public void changedUpdate(DocumentEvent e) {} // Not needed for plain-text fields
-                        });
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(131, 131, 131))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jXLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jXLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDateChooser_Date_of_Joining, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField__emp_Mob_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_Father_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_L_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_f_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_Vill_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_Add_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_Sal_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(108, 108, 108))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField_f_Name))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField_L_Name))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField_Father_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextField__emp_Mob_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField_Vill_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel9)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField_Add_Name)
+                        .addGap(5, 5, 5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jXLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField_Sal_Name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jXLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jDateChooser_Date_of_Joining, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(65, 65, 65)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(52, 52, 52))
+        );
 
-                        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
-                        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-                        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\vilg.png")); // NOI18N
-                        jLabel9.setText("Address :");
-                        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-                        jLabel9.setOpaque(true);
-
-                        jTextField_Add_Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-                        jTextField_Add_Name.getDocument().addDocumentListener(new DocumentListener()
-                            {
-                                @Override
-                                public void removeUpdate(DocumentEvent e)
-                                {
-
-                                }
-
-                                @Override
-                                public void insertUpdate(DocumentEvent e)
-                                {
-                                    validateInput(jTextField_Add_Name,"^[a-zA-Z]+\\s+[a-zA-Z].*$");
-                                }
-
-                                @Override
-                                public void changedUpdate(DocumentEvent e) {} // Not needed for plain-text fields
-                            });
-
-                            jLabel13.setBackground(new java.awt.Color(255, 255, 255));
-                            jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-                            jLabel13.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\villeg.png")); // NOI18N
-                            jLabel13.setText("Village :");
-                            jLabel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-                            jLabel13.setOpaque(true);
-
-                            jButton1.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\ook.png")); // NOI18N
-                            jButton1.setOpaque(false);
-                            jButton1.addActionListener(new java.awt.event.ActionListener() {
-                                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                    jButton1ActionPerformed(evt);
-                                }
-                            });
-
-                            jDateChooser_Date_of_Joining.setDateFormatString("yyyy.MM.dd");
-                            jDateChooser_Date_of_Joining.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-                            jDateChooser_Date_of_Joining.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-                                public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                                    jDateChooser_Date_of_JoiningPropertyChange(evt);
-                                }
-                            });
-
-                            jXLabel1.setBackground(new java.awt.Color(255, 255, 255));
-                            jXLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-                            jXLabel1.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\dateofjoin.png")); // NOI18N
-                            jXLabel1.setText("Date of Joining");
-                            jXLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-                            jXLabel1.setOpaque(true);
-
-                            jXLabel2.setBackground(new java.awt.Color(255, 255, 255));
-                            jXLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-                            jXLabel2.setForeground(new java.awt.Color(0, 0, 255));
-                            jXLabel2.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\emp.png")); // NOI18N
-                            jXLabel2.setText("       Employee Details");
-                            jXLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-                            jXLabel2.setOpaque(true);
-
-                            jXLabel3.setBackground(new java.awt.Color(255, 255, 255));
-                            jXLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-                            jXLabel3.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\salary.png")); // NOI18N
-                            jXLabel3.setText("Salary :");
-                            jXLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-                            jXLabel3.setOpaque(true);
-
-                            jTextField_Sal_Name.getDocument().addDocumentListener(new DocumentListener()
-                                {
-                                    @Override
-                                    public void removeUpdate(DocumentEvent e)
-                                    {
-
-                                    }
-
-                                    @Override
-                                    public void insertUpdate(DocumentEvent e)
-                                    {
-                                        validateInput(jTextField_Sal_Name,"\\d+");
-                                    }
-
-                                    @Override
-                                    public void changedUpdate(DocumentEvent e) {} // Not needed for plain-text fields
-                                });
-
-                                jTextField__emp_Mob_Name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-                                jTextField__emp_Mob_Name.getDocument().addDocumentListener(new DocumentListener()
-                                    {
-                                        @Override
-                                        public void removeUpdate(DocumentEvent e)
-                                        {
-
-                                        }
-
-                                        @Override
-                                        public void insertUpdate(DocumentEvent e)
-                                        {
-                                            validateInput(jTextField__emp_Mob_Name,"\\d+");
-                                        }
-
-                                        @Override
-                                        public void changedUpdate(DocumentEvent e) {} // Not needed for plain-text fields
-                                    });
-
-                                    jButton4.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\ccccl.png")); // NOI18N
-                                    jButton4.addActionListener(new java.awt.event.ActionListener() {
-                                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                            jButton4ActionPerformed(evt);
-                                        }
-                                    });
-
-                                    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-                                    getContentPane().setLayout(layout);
-                                    layout.setHorizontalGroup(
-                                        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(76, 76, 76)
-                                            .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(68, 68, 68)
-                                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGap(40, 40, 40)
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jXLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jXLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                            .addComponent(jTextField_Sal_Name, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                                                            .addComponent(jTextField_Add_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                                            .addComponent(jTextField_Vill_Name)
-                                                            .addComponent(jTextField__emp_Mob_Name)
-                                                            .addComponent(jTextField_f_Name)
-                                                            .addComponent(jTextField_L_Name)
-                                                            .addComponent(jTextField_Father_Name, javax.swing.GroupLayout.Alignment.TRAILING))
-                                                        .addComponent(jDateChooser_Date_of_Joining, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                            .addGap(131, 131, 131))
-                                    );
-                                    layout.setVerticalGroup(
-                                        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(38, 38, 38)
-                                            .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(66, 66, 66)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jTextField_f_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel1))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jLabel2)
-                                                .addComponent(jTextField_L_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jLabel3)
-                                                .addComponent(jTextField_Father_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jLabel4)
-                                                .addComponent(jTextField__emp_Mob_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField_Vill_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jLabel9)
-                                                .addComponent(jTextField_Add_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jXLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField_Sal_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jXLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jDateChooser_Date_of_Joining, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(65, 65, 65)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                            .addGap(52, 52, 52))
-                                    );
-
-                                    pack();
-                                }// </editor-fold>//GEN-END:initComponents
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -544,6 +456,70 @@ public  class NewJFrame71 extends javax.swing.JFrame {
         iClass.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_myclose
+
+    private void jTextField__emp_Mob_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField__emp_Mob_NameFocusLost
+         if(!jTextField__emp_Mob_Name.getText().isEmpty() &&  !jTextField__emp_Mob_Name.getText().matches("^\\d+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Mobile Number", "Invalid Mobile", JOptionPane.WARNING_MESSAGE);
+            jTextField__emp_Mob_Name.setText("");
+            jTextField__emp_Mob_Name.requestFocusInWindow();
+            
+        }
+    }//GEN-LAST:event_jTextField__emp_Mob_NameFocusLost
+
+    private void jTextField_f_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_f_NameFocusLost
+           if(!jTextField_f_Name.getText().isEmpty() &&  !jTextField_f_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect First Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_f_Name.setText("");
+            jTextField_f_Name.requestFocusInWindow();
+            
+        }else
+           jTextField_f_Name.setText(jTextField_f_Name.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_f_NameFocusLost
+
+    private void jTextField_L_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_L_NameFocusLost
+        if(!jTextField_L_Name.getText().isEmpty() &&  !jTextField_L_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Last Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_L_Name.setText("");
+            jTextField_L_Name.requestFocusInWindow();
+            
+        }else
+           jTextField_L_Name.setText(jTextField_L_Name.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_L_NameFocusLost
+
+    private void jTextField_Father_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Father_NameFocusLost
+         if(!jTextField_Father_Name.getText().isEmpty() &&  !jTextField_Father_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Father Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_Father_Name.setText("");
+            jTextField_Father_Name.requestFocusInWindow();
+            
+        }else
+           jTextField_Father_Name.setText(jTextField_Father_Name.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_Father_NameFocusLost
+
+    private void jTextField_Vill_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Vill_NameFocusLost
+        
+         if(!jTextField_Vill_Name.getText().isEmpty() &&  !jTextField_Vill_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Father Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_Vill_Name.setText("");
+            jTextField_Vill_Name.requestFocusInWindow();
+            
+        }else
+           jTextField_Vill_Name.setText(jTextField_Vill_Name.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_Vill_NameFocusLost
+
+    private void jTextField_Sal_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Sal_NameFocusLost
+        if(!jTextField_Sal_Name.getText().isEmpty() &&  !jTextField_Sal_Name.getText().matches("^\\d+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Mobile Number", "Invalid Mobile", JOptionPane.WARNING_MESSAGE);
+            jTextField_Sal_Name.setText("");
+            jTextField_Sal_Name.requestFocusInWindow();
+            
+        }    }//GEN-LAST:event_jTextField_Sal_NameFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

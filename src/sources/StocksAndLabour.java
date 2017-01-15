@@ -11,6 +11,7 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -120,6 +121,11 @@ public class StocksAndLabour extends javax.swing.JFrame {
                     @Override
                     public void changedUpdate(DocumentEvent e) {}
                     // Not needed for plain-text fields
+                });
+                jTextField_Labour.addFocusListener(new java.awt.event.FocusAdapter() {
+                    public void focusLost(java.awt.event.FocusEvent evt) {
+                        jTextField_LabourFocusLost(evt);
+                    }
                 });
 
                 jLabel_Labour.setBackground(new java.awt.Color(255, 255, 255));
@@ -234,9 +240,11 @@ public class StocksAndLabour extends javax.swing.JFrame {
                                         .addComponent(jTextField_Labour, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel_Labour))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel_Stamp)
-                                        .addComponent(jTextField_Stamp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jTextField_Stamp)
+                                            .addGap(1, 1, 1)))
                                     .addGap(63, 63, 63)
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addContainerGap(73, Short.MAX_VALUE))
@@ -252,7 +260,10 @@ public class StocksAndLabour extends javax.swing.JFrame {
         Labour_charge = jTextField_Labour.getText();
         Stamp = jTextField_Stamp.getText().toUpperCase();
         // = jTextField4.getText();
-
+        if(!Stamp.isEmpty() && !Item.isEmpty() && !Labour_charge.isEmpty()) 
+        {
+        DefaultTableModel Dt = (DefaultTableModel)MyMain.jXTable_Stocks.getModel();
+        String[] sa = new String []{String.valueOf(Dt.getRowCount()+1),Item,Labour_charge,Stamp};
         String ret = SetVal();
         System.out.println(ret);
         JOptionPane.showMessageDialog(this.getComponent(0), ret);
@@ -261,10 +272,12 @@ public class StocksAndLabour extends javax.swing.JFrame {
         Vector productList = new Vector(MyMain.main_Hashmap_for_Item_and_labour.keySet());
         MyMain.jComboBox_Items_List.setModel(new javax.swing.DefaultComboBoxModel(productList));
         System.out.println(productList.toString());
+        Dt.addRow(sa);
         iClass.setVisible(true);
         this.dispose();
-
-		
+    }else
+        JOptionPane.showMessageDialog(this, "Please Enter Data", "No Data",JOptionPane.WARNING_MESSAGE);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -302,6 +315,16 @@ public class StocksAndLabour extends javax.swing.JFrame {
         iClass.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_formWindowClosed
+
+    private void jTextField_LabourFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_LabourFocusLost
+         if(!jTextField_Labour.getText().isEmpty() && ! jTextField_Labour.getText().matches("^\\d+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect value for Labour Charge", "Invalid Data", JOptionPane.WARNING_MESSAGE);
+            jTextField_Labour.setText("");
+            jTextField_Labour.requestFocusInWindow();
+            
+        }
+    }//GEN-LAST:event_jTextField_LabourFocusLost
 
     /**
      * @param args the command line arguments

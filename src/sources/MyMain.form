@@ -6,7 +6,7 @@
     </Component>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="0" green="0" red="ff" type="rgb"/>
     </Property>
@@ -59,7 +59,7 @@
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="jXButton_not" min="-2" pref="58" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="jXLabel3" min="-2" pref="104" max="-2" attributes="0"/>
+                  <Component id="jXLabel_Welcome_Name" min="-2" pref="104" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="jXLabel4" min="-2" pref="31" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -71,7 +71,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jXLabel9" alignment="0" max="32767" attributes="0"/>
               <Component id="jXLabel4" alignment="0" max="32767" attributes="0"/>
-              <Component id="jXLabel3" alignment="0" max="32767" attributes="0"/>
+              <Component id="jXLabel_Welcome_Name" alignment="0" max="32767" attributes="0"/>
               <Component id="jXButton_not" alignment="0" max="32767" attributes="0"/>
               <Component id="jXLabel1" alignment="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -115,7 +115,7 @@
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jXLabel9.setText((new Date()).toString());&#xa;jXLabel9.setForeground(Color.black);&#xa;Timer t = new Timer(1000, new ActionListener() {&#xa;&#xa;        @Override&#xa;        public void actionPerformed(ActionEvent e) {&#xa;            jXLabel9.setText(&quot;   &quot;+(new Date()).toString());&#xa;        }&#xa;    });&#xa;    t.start();"/>
           </AuxValues>
         </Component>
-        <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel3">
+        <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel_Welcome_Name">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bf" green="f4" red="ff" type="rgb"/>
@@ -969,6 +969,7 @@
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="//tableModel  = new UpdateTrackingTableModel(jj(&quot;STOCKS&quot;)[0], jj(&quot;STOCKS&quot;)[1]);"/>
                                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tableModel  = new UpdateTrackingTableModel(jj(&quot;STOCKS&quot;)[0].size(), new String [] {&#xa;        &quot;S.N.&quot;, &quot;Items&quot;, &quot;Labour Charge&quot;, &quot;Stamp&quot;});&#xa;jXTable_Stocks = new JXTable(tableModel);"/>
+                                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                               </AuxValues>
                             </Component>
                           </SubComponents>
@@ -1168,8 +1169,8 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTabbedPane_Reminders" min="-2" pref="490" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="345" max="32767" attributes="0"/>
+                              <Component id="jTabbedPane_Reminders" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="264" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1204,8 +1205,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane9" min="-2" pref="337" max="-2" attributes="0"/>
-                                      <EmptySpace pref="77" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane9" min="-2" pref="484" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1268,7 +1269,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane12" min="-2" pref="336" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane12" min="-2" pref="441" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1995,6 +1996,7 @@
                         <Component class="javax.swing.JTextField" name="jTextField_Total_Amount">
                           <Events>
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTextField_Total_AmountMouseClicked"/>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField_Total_AmountFocusLost"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextField_Total_Amount.getDocument().addDocumentListener(new DocumentListener()&#xa;    {&#xa;      @Override&#xa;      public void removeUpdate(DocumentEvent e)&#xa;      {&#xa;        &#xa;      }&#xa;&#xa;      @Override&#xa;      public void insertUpdate(DocumentEvent e)&#xa;      {&#xa;        validateInput(jTextField_Total_Amount,&quot;\\d+&quot;);&#xa;      }&#xa;&#xa;      @Override&#xa;      public void changedUpdate(DocumentEvent e) {}&#xa; // Not needed for plain-text fields&#xa;  });"/>
@@ -2017,6 +2019,9 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox_Tx_TypesActionPerformed"/>
                             <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jComboBox_Tx_TypesPropertyChange"/>
                           </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel6">
                           <Properties>
@@ -2045,6 +2050,9 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextField_Interest">
+                          <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField_InterestFocusLost"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextField_Interest.getDocument().addDocumentListener(new DocumentListener()&#xa;    {&#xa;      @Override&#xa;      public void removeUpdate(DocumentEvent e)&#xa;      {&#xa;        &#xa;      }&#xa;&#xa;      @Override&#xa;      public void insertUpdate(DocumentEvent e)&#xa;      {&#xa;        validateInput(jTextField_Interest,&quot;^(?=.*\\d)\\d*(?:\\.\\d+)?$&quot;);&#xa;      }&#xa;&#xa;      @Override&#xa;      public void changedUpdate(DocumentEvent e) {}&#xa; // Not needed for plain-text fields&#xa;  });"/>
                             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jTextField_Interest.setToolTipText(&quot;First Enter UserID OR Mobile&quot;);"/>
@@ -2076,6 +2084,9 @@
                           </AuxValues>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextField_Debt">
+                          <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField_DebtFocusLost"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextField_Debt.getDocument().addDocumentListener(new DocumentListener()&#xa;    {&#xa;      @Override&#xa;      public void removeUpdate(DocumentEvent e)&#xa;      {&#xa;        &#xa;      }&#xa;&#xa;      @Override&#xa;      public void insertUpdate(DocumentEvent e)&#xa;      {&#xa;        validateInput(jTextField_Debt,&quot;\\d+&quot;);&#xa;      }&#xa;&#xa;      @Override&#xa;      public void changedUpdate(DocumentEvent e) {}&#xa; // Not needed for plain-text fields&#xa;  });&#xa;&#xa;jTextField_Debt.setText(&quot;0&quot;);"/>
                             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="//jTextField_Debt.setToolTipText(&quot;First Enter UserID OR Mobile&quot;);"/>
@@ -2083,6 +2094,9 @@
                           </AuxValues>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextField_Rate_For_TxRx">
+                          <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField_Rate_For_TxRxFocusLost"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextField_Rate_For_TxRx.getDocument().addDocumentListener(new DocumentListener()&#xa;    {&#xa;      @Override&#xa;      public void removeUpdate(DocumentEvent e)&#xa;      {&#xa;        &#xa;      }&#xa;&#xa;      @Override&#xa;      public void insertUpdate(DocumentEvent e)&#xa;      {&#xa;        validateInput(jTextField_Rate_For_TxRx,&quot;\\d+&quot;);&#xa;      }&#xa;&#xa;      @Override&#xa;      public void changedUpdate(DocumentEvent e) {}&#xa; // Not needed for plain-text fields&#xa;  });"/>
                             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jTextField_Rate_For_TxRx.setToolTipText(&quot;First Enter UserID OR Mobile&quot;);"/>
@@ -2090,6 +2104,9 @@
                           </AuxValues>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextField_weight">
+                          <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField_weightFocusLost"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextField_weight.getDocument().addDocumentListener(new DocumentListener()&#xa;    {&#xa;      @Override&#xa;      public void removeUpdate(DocumentEvent e)&#xa;      {&#xa;        &#xa;      }&#xa;&#xa;      @Override&#xa;      public void insertUpdate(DocumentEvent e)&#xa;      {&#xa;        validateInput(jTextField_weight,&quot;^(?=.*\\d)\\d*(?:\\.\\d+)?$&quot;);&#xa;      }&#xa;&#xa;      @Override&#xa;      public void changedUpdate(DocumentEvent e) {}&#xa; // Not needed for plain-text fields&#xa;  });"/>
                             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jTextField_weight.setToolTipText(&quot;First Enter UserID OR Mobile&quot;);"/>
@@ -2224,8 +2241,11 @@
                           </AuxValues>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextField_Labour_charge">
+                          <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField_Labour_chargeFocusLost"/>
+                          </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                           </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel10">
@@ -2265,7 +2285,7 @@
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="5" resizable="true">
                                   <Title/>
                                   <Editor/>
                                   <Renderer/>

@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -138,7 +139,10 @@ public class NewJFrame extends javax.swing.JFrame {
                 try {
                     loadconfig();
                    // (new Thread(new HelloRunnable())).start();
-                    new MyMain().setVisible(true);
+                    MyMain mm = new MyMain();
+                    ImageIcon frameIcon = new ImageIcon("/img/JMS.png");
+                    mm.setIconImage(frameIcon.getImage());
+                    mm.setVisible(true);
                 } catch (UnsupportedAudioFileException ex) {
                     Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {

@@ -26,7 +26,7 @@ import javax.swing.event.DocumentListener;
 public class NewJFrame73 extends javax.swing.JFrame {
 
 
-    static String sDate;
+    static String sDate= null;
     public static String Today_Gold_Rate = null;
     public static String Today_Silver_Rate= null;
     public static MyMain iClass;
@@ -127,6 +127,11 @@ public class NewJFrame73 extends javax.swing.JFrame {
                 public void changedUpdate(DocumentEvent e) {}
                 // Not needed for plain-text fields
             });
+            jTextField_Today_Gold_Rate.addFocusListener(new java.awt.event.FocusAdapter() {
+                public void focusLost(java.awt.event.FocusEvent evt) {
+                    jTextField_Today_Gold_RateFocusLost(evt);
+                }
+            });
 
             jTextField_Today_Silver_Rate.getDocument().addDocumentListener(new DocumentListener()
                 {
@@ -145,6 +150,11 @@ public class NewJFrame73 extends javax.swing.JFrame {
                     @Override
                     public void changedUpdate(DocumentEvent e) {}
                     // Not needed for plain-text fields
+                });
+                jTextField_Today_Silver_Rate.addFocusListener(new java.awt.event.FocusAdapter() {
+                    public void focusLost(java.awt.event.FocusEvent evt) {
+                        jTextField_Today_Silver_RateFocusLost(evt);
+                    }
                 });
 
                 jButton3.setBackground(new java.awt.Color(255, 255, 255));
@@ -208,12 +218,13 @@ public class NewJFrame73 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
+        
         Today_Gold_Rate = jTextField_Today_Gold_Rate.getText();
         Today_Silver_Rate = jTextField_Today_Silver_Rate.getText();
         NewJFrame.SET_TODAY_GOLD_RATE = Today_Gold_Rate;
         NewJFrame.SET_TODAY_SILVER_RATE = Today_Silver_Rate;
         
+        if(sDate != null){
         // = jTextField4.getText();
         
         String ret = SetVal();
@@ -225,6 +236,8 @@ public class NewJFrame73 extends javax.swing.JFrame {
         else if(MyMain.bSilver)
             MyMain.jTextField_Rate_For_TxRx.setText(Today_Silver_Rate);
         this.dispose();
+        }else
+            JOptionPane.showMessageDialog(this, "Please Select Date ", "Date", JOptionPane.WARNING_MESSAGE);
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -252,6 +265,27 @@ public class NewJFrame73 extends javax.swing.JFrame {
         iClass.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_myclose
+
+    private void jTextField_Today_Gold_RateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Today_Gold_RateFocusLost
+       
+        if(!jTextField_Today_Gold_Rate.getText().isEmpty() &&  !jTextField_Today_Gold_Rate.getText().matches("^\\d+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Gold Rate", "Invalid Rate", JOptionPane.WARNING_MESSAGE);
+            jTextField_Today_Gold_Rate.setText("");
+            jTextField_Today_Gold_Rate.requestFocusInWindow();
+            
+        }
+    }//GEN-LAST:event_jTextField_Today_Gold_RateFocusLost
+
+    private void jTextField_Today_Silver_RateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Today_Silver_RateFocusLost
+        if(!jTextField_Today_Silver_Rate.getText().isEmpty() &&  !jTextField_Today_Silver_Rate.getText().matches("^\\d+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Silver Rate", "Invalid Rate", JOptionPane.WARNING_MESSAGE);
+            jTextField_Today_Silver_Rate.setText("");
+            jTextField_Today_Silver_Rate.requestFocusInWindow();
+            
+        }
+    }//GEN-LAST:event_jTextField_Today_Silver_RateFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

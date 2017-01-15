@@ -115,6 +115,7 @@
         <Component class="javax.swing.JTextField" name="jTextField_Custom">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_CustomActionPerformed"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField_CustomFocusLost"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="jTextField_Custom.getDocument().addDocumentListener(new DocumentListener()&#xa;    {&#xa;      @Override&#xa;      public void removeUpdate(DocumentEvent e)&#xa;      {&#xa;        &#xa;      }&#xa;&#xa;      @Override&#xa;      public void insertUpdate(DocumentEvent e)&#xa;      {&#xa;        validateInput(jTextField_Custom.getText(),&quot;\\d+&quot;);&#xa;      }&#xa;&#xa;      @Override&#xa;      public void changedUpdate(DocumentEvent e) {}&#xa; // Not needed for plain-text fields&#xa;  });"/>

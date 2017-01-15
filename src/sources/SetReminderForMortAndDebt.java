@@ -69,6 +69,11 @@ public class SetReminderForMortAndDebt extends javax.swing.JFrame {
                 jTextField_CustomActionPerformed(evt);
             }
         });
+        jTextField_Custom.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField_CustomFocusLost(evt);
+            }
+        });
         jTextField_Custom.getDocument().addDocumentListener(new DocumentListener()
             {
                 @Override
@@ -339,6 +344,16 @@ public class SetReminderForMortAndDebt extends javax.swing.JFrame {
         iClass.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_myclose
+
+    private void jTextField_CustomFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_CustomFocusLost
+        if(!jTextField_Custom.getText().isEmpty() &&  !jTextField_Custom.getText().matches("^\\d+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect value for reminder", "Invalid Data", JOptionPane.WARNING_MESSAGE);
+            jTextField_Custom.setText("");
+            jTextField_Custom.requestFocusInWindow();
+            
+        }
+    }//GEN-LAST:event_jTextField_CustomFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

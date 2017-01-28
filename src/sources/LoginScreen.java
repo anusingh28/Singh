@@ -3,12 +3,9 @@ package sources;
 
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.SplashScreen;
 import java.awt.geom.Ellipse2D;
-import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +15,6 @@ import java.util.Properties;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
@@ -33,28 +29,36 @@ import javax.swing.JOptionPane;
  *
  * @author sijitend
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class LoginScreen extends javax.swing.JFrame {
 
     public static String DEBT_REMINDER_FROM_CONFIG, MORTGAGE_REMINDER_FROM_CONFIG;
     public static String TIME_FOR_ALL_REMINDER_FROM_CONFIG,SET_TODAY_GOLD_RATE=null, SET_TODAY_SILVER_RATE= null;
-    
+    public static String SHOP_NAME;
+    public static String OWNER_NAME;
+    public static String OWNER_MOB;
+    public static String SHOP_ADDRESS;
+    private static String UNAME;
+    public static String PASS, DATA;
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame(){
-        try{
+    public LoginScreen(){
+        try {
+            loadconfig();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
         Container c = this.getContentPane();
         
         jXLoginPane1.setBannerText("Admin Login");
         c.setBackground(Color.WHITE);
-        BufferedImage img = ImageIO.read(new File("C:\\Users\\sijitend\\Pictures\\pola.jpg"));
+        
+        jXLoginPane1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        //BufferedImage img = ImageIO.read(new File("C:\\Users\\sijitend\\Pictures\\pola.jpg"));
       //  this.setIconImage(img);
        // this.getContentPane().set  setBanner(img);
-        }catch(IOException e)
-        {
-            System.out.println("===========>");
-        }
+        
     }
 
     /**
@@ -87,7 +91,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\sijitend\\Pictures\\jewellarey_icons\\5.jpg")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\sijitend\\Documents\\jitu\\New\\JMS\\JMS\\src\\img\\5.png")); // NOI18N
         jButton1.setFocusCycleRoot(true);
         jButton1.setIconTextGap(0);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +109,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jXLoginPane1.setBackground(new java.awt.Color(0, 204, 204));
         jXLoginPane1.setForeground(new java.awt.Color(255, 0, 102));
         jXLoginPane1.setFocusCycleRoot(true);
+        jXLoginPane1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jXLoginPane1.setMessage("Enter Username and Password !");
         jXLoginPane1.setName("jitu"); // NOI18N
         jXLoginPane1.setNextFocusableComponent(jButton1);
@@ -113,10 +118,10 @@ public class NewJFrame extends javax.swing.JFrame {
         jXLabel1.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\loogin.png")); // NOI18N
         getContentPane().add(jXLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 550, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\sijitend\\Pictures\\jewellarey_icons\\7.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\7.png")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, 120));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\sijitend\\Pictures\\jewellarey_icons\\7.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\dist\\img\\7.png")); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 120, 120));
 
         pack();
@@ -127,36 +132,36 @@ public class NewJFrame extends javax.swing.JFrame {
         
         if(jXLoginPane1.getUserName().length() == 0  || jXLoginPane1.getPassword().length ==0)
         {
-            JOptionPane.showMessageDialog(NewJFrame.this, "Please Enter Username/Password", "Login", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(LoginScreen.this, "Please Enter Username/Password", "Login", JOptionPane.WARNING_MESSAGE);
         }
         else
         {
-            System.out.println("==>"+jXLoginPane1.getUserName()+String.valueOf(jXLoginPane1.getPassword()));
-            if(String.valueOf(jXLoginPane1.getPassword()).equalsIgnoreCase("demo"))
+            System.out.println("==>"+jXLoginPane1.getUserName());
+            if(String.valueOf(jXLoginPane1.getPassword()).equalsIgnoreCase(PASS) && String.valueOf(jXLoginPane1.getUserName()).equalsIgnoreCase(UNAME))
             {
                System.out.println("OK");
                     this.setVisible(false);
                 try {
-                    loadconfig();
+                  
                    // (new Thread(new HelloRunnable())).start();
                     MyMain mm = new MyMain();
                     ImageIcon frameIcon = new ImageIcon("/img/JMS.png");
                     mm.setIconImage(frameIcon.getImage());
                     mm.setVisible(true);
                 } catch (UnsupportedAudioFileException ex) {
-                    Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
-                    Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (LineUnavailableException ex) {
-                    Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             else
             {
                 
-                JOptionPane.showMessageDialog(NewJFrame.this, "<html><b>Couldn't log in</b><br><br>Check your user name and password ! </html>", "Login", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(LoginScreen.this, "<html><b>Couldn't log in</b><br><br>Check your user name and password ! </html>", "Login", JOptionPane.ERROR_MESSAGE);
                 jXLoginPane1.setPassword(new char[0]);
                 //this.dispose();
             }
@@ -184,21 +189,22 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
       
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-                    new NewJFrame().setVisible(true);
+                    new LoginScreen().setVisible(true);
                
             }
         });
@@ -216,14 +222,14 @@ public class NewJFrame extends javax.swing.JFrame {
     private void loadconfig() throws FileNotFoundException {
         
         Properties prop = new Properties();
-	InputStream input = null;
-
+        InputStream input = null;
  	try {
 
-		String filename = "config.properties";
-		input = getClass().getClassLoader().getResourceAsStream(filename);
-		if (input == null) {
-			System.out.println("Sorry, unable to find " + filename);
+                File initialFile = new File("C:\\dist\\config.properties");
+                 input = new FileInputStream(initialFile);
+    
+                if (input == null) {
+			System.out.println("Sorry, unable to find config file"  );
 			return;
 		}
 
@@ -231,6 +237,13 @@ public class NewJFrame extends javax.swing.JFrame {
                 MORTGAGE_REMINDER_FROM_CONFIG = prop.getProperty("NORMAL_MORTGAGE_REMINDER_IN_MONTHS");
 		DEBT_REMINDER_FROM_CONFIG = prop.getProperty("NORMAL_DEBT_REMINDER_IN_MONTHS");
                 TIME_FOR_ALL_REMINDER_FROM_CONFIG = " "+prop.getProperty("TIME_FOR_ALL_REMINDER");
+                SHOP_NAME = prop.getProperty("SHOP_NAME");
+                SHOP_ADDRESS = prop.getProperty("SHOP_ADDRESS");
+                OWNER_MOB = prop.getProperty("OWNER_MOB");
+                OWNER_NAME = prop.getProperty("OWNER_NAME");
+                UNAME = prop.getProperty("USERNAME");
+                PASS = prop.getProperty("PASSWORD");
+                DATA = prop.getProperty("DATA");
                // SET_TODAY_GOLD_RATE = 
                 Vector[] dbdata =   MyMain.jj("TODAY_RATE");
                 int j = 0;

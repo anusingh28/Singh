@@ -129,6 +129,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_Item">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField_ItemFocusLost"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jTextField_Item.getDocument().addDocumentListener(new DocumentListener()&#xa;    {&#xa;      @Override&#xa;      public void removeUpdate(DocumentEvent e)&#xa;      {&#xa;        &#xa;      }&#xa;&#xa;      @Override&#xa;      public void insertUpdate(DocumentEvent e)&#xa;      {&#xa;        validateInput(jTextField_Item.getText(),&quot;\\d+&quot;);&#xa;      }&#xa;&#xa;      @Override&#xa;      public void changedUpdate(DocumentEvent e) {}&#xa; // Not needed for plain-text fields&#xa;  });"/>
       </AuxValues>

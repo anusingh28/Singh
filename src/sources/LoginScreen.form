@@ -59,7 +59,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\sijitend\Pictures\jewellarey_icons\5.jpg"/>
+          <Image iconType="2" name="C:\Users\sijitend\Documents\jitu\New\JMS\JMS\src\img\5.png"/>
         </Property>
         <Property name="focusCycleRoot" type="boolean" value="true"/>
         <Property name="iconTextGap" type="int" value="0"/>
@@ -83,6 +83,9 @@
           <Color blue="66" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="focusCycleRoot" type="boolean" value="true"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
         <Property name="message" type="java.lang.String" value="Enter Username and Password !"/>
         <Property name="name" type="java.lang.String" value="jitu" noResource="true"/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
@@ -110,7 +113,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\sijitend\Pictures\jewellarey_icons\7.jpg"/>
+          <Image iconType="2" name="C:\dist\img\7.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -122,7 +125,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\sijitend\Pictures\jewellarey_icons\7.jpg"/>
+          <Image iconType="2" name="C:\dist\img\7.png"/>
         </Property>
       </Properties>
       <Constraints>

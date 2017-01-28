@@ -98,6 +98,9 @@ public class WinRegistry {
     InvocationTargetException 
   {
     if (hkey == HKEY_LOCAL_MACHINE) {
+        System.out.println("WINREG :"+hkey+":"+key+":"+valueName);
+        System.out.println(readString(systemRoot, hkey, key, valueName));
+        System.out.println("WINREG :");
       return readString(systemRoot, hkey, key, valueName);
     }
     else if (hkey == HKEY_CURRENT_USER) {

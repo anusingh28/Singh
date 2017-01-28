@@ -23,7 +23,7 @@ import javax.swing.event.DocumentListener;
  *
  * @author sijitend
  */
-public class NewJFrame73 extends javax.swing.JFrame {
+public class AddRate extends javax.swing.JFrame {
 
 
     static String sDate= null;
@@ -33,8 +33,9 @@ public class NewJFrame73 extends javax.swing.JFrame {
  /**
      * Creates new form NewJFrame3
      */
-    public NewJFrame73() {
+    public AddRate() {
 
+        JOptionPane.showMessageDialog(AddRate.this, "Gold Rate as per 10gms and SILVER as per Kgs", "Rates", JOptionPane.INFORMATION_MESSAGE);
         initComponents();
 
     }
@@ -221,8 +222,8 @@ public class NewJFrame73 extends javax.swing.JFrame {
         
         Today_Gold_Rate = jTextField_Today_Gold_Rate.getText();
         Today_Silver_Rate = jTextField_Today_Silver_Rate.getText();
-        NewJFrame.SET_TODAY_GOLD_RATE = Today_Gold_Rate;
-        NewJFrame.SET_TODAY_SILVER_RATE = Today_Silver_Rate;
+        LoginScreen.SET_TODAY_GOLD_RATE = Today_Gold_Rate;
+        LoginScreen.SET_TODAY_SILVER_RATE = Today_Silver_Rate;
         
         if(sDate != null){
         // = jTextField4.getText();
@@ -363,7 +364,7 @@ public String toMyString() {
 //    Matcher m = r.matcher(text);
 //    if (!m.matches())
 //    {
-//      JOptionPane.showMessageDialog(NewJFrame73.this,"Error", "Validation", JOptionPane.WARNING_MESSAGE);
+//      JOptionPane.showMessageDialog(AddRate.this,"Error", "Validation", JOptionPane.WARNING_MESSAGE);
 //      jTextField_Today_Gold_Rate.setText("");
 //      jTextField_Today_Silver_Rate.setText("");
 //    }

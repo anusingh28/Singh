@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author sijitend
  */
-public class StocksAndLabour extends javax.swing.JFrame {
+public class AddNewStocksAndLabour extends javax.swing.JFrame {
 
  public static MyMain iClass;
     private static String Item;
@@ -32,7 +32,7 @@ public class StocksAndLabour extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame76
      */
-    public StocksAndLabour() {
+    public AddNewStocksAndLabour() {
         initComponents();
     }
 
@@ -88,6 +88,11 @@ public class StocksAndLabour extends javax.swing.JFrame {
                 @Override
                 public void changedUpdate(DocumentEvent e) {}
                 // Not needed for plain-text fields
+            });
+            jTextField_Item.addFocusListener(new java.awt.event.FocusAdapter() {
+                public void focusLost(java.awt.event.FocusEvent evt) {
+                    jTextField_ItemFocusLost(evt);
+                }
             });
 
             jCheckBox_Silver.setText(" Silver ");
@@ -326,6 +331,17 @@ public class StocksAndLabour extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField_LabourFocusLost
 
+    private void jTextField_ItemFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_ItemFocusLost
+        // TODO add your handling code here
+          if(!jTextField_Item.getText().isEmpty() &&  !jTextField_Item.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Item Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_Item.setText("");
+            jTextField_Item.requestFocusInWindow();
+            
+        }
+    }//GEN-LAST:event_jTextField_ItemFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -343,21 +359,23 @@ public class StocksAndLabour extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StocksAndLabour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddNewStocksAndLabour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StocksAndLabour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddNewStocksAndLabour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StocksAndLabour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddNewStocksAndLabour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StocksAndLabour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddNewStocksAndLabour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StocksAndLabour().setVisible(true);
+                new AddNewStocksAndLabour().setVisible(true);
             }
         });
     }

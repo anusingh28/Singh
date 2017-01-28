@@ -5,15 +5,16 @@
  */
 package sources;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -22,8 +23,8 @@ import javax.swing.event.DocumentListener;
 public class Createlogin extends javax.swing.JFrame {
     private static String First_Name;
     private static String Last_Name;
-    private static String pass;
-    private static String uname;
+    public  static String pass;
+    public static String uname;
     private static String mob;
     private static String email;
     private static String sDateOfRegisteration;
@@ -341,8 +342,26 @@ public class Createlogin extends javax.swing.JFrame {
             {
                 System.out.println(ret);
                 JOptionPane.showMessageDialog(this.getComponent(0), ret);
+                try{
+                    
+                  
+                Properties pop = new Properties();
+                  pop.load(new FileInputStream("C:\\dist\\config.properties"));
+                  
+                  pop.put("USERNAME", uname);
+                  pop.put("PASSWORD", pass);
+                  
+                 FileOutputStream output = new FileOutputStream("C:\\dist\\config.properties");
+                 pop.store(output, "This is overwrite file");
+                 output.close();
+                 
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                }
                 this.dispose();
-                new NewJFrame().setVisible(true);
+                new LoginScreen().setVisible(true);
             }
             else
             JOptionPane.showMessageDialog(this.getComponent(0), "Database Error","" ,JOptionPane.ERROR_MESSAGE);

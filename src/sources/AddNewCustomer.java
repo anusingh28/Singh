@@ -24,7 +24,7 @@ import javax.swing.event.DocumentListener;
  *
  * @author sijitend
  */
-public class NewJFrame3 extends javax.swing.JFrame {
+public class AddNewCustomer extends javax.swing.JFrame {
 
     static String UserID;
 
@@ -33,7 +33,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }
 
     public static void setFirst_Name(String First_Name) {
-        NewJFrame3.First_Name = First_Name;
+        AddNewCustomer.First_Name = First_Name;
     }
 
     public static String getLast_Name() {
@@ -41,7 +41,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }
 
     public static void setLast_Name(String Last_Name) {
-        NewJFrame3.Last_Name = Last_Name;
+        AddNewCustomer.Last_Name = Last_Name;
     }
 
     public static String getFatherName() {
@@ -49,7 +49,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }
 
     public static void setFatherName(String FatherName) {
-        NewJFrame3.FatherName = FatherName;
+        AddNewCustomer.FatherName = FatherName;
     }
 
     public static String getMobile() {
@@ -57,7 +57,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }
 
     public static void setMobile(String Mobile) {
-        NewJFrame3.Mobile = Mobile;
+        AddNewCustomer.Mobile = Mobile;
     }
 
     public static String getVill() {
@@ -65,7 +65,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }
 
     public static void setVill(String Vill) {
-        NewJFrame3.Vill = Vill;
+        AddNewCustomer.Vill = Vill;
     }
 
     public static String getTown() {
@@ -73,7 +73,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }
 
     public static void setTown(String Town) {
-        NewJFrame3.Town = Town;
+        AddNewCustomer.Town = Town;
     }
 
     public static String getDist() {
@@ -81,7 +81,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }
 
     public static void setDist(String Dist) {
-        NewJFrame3.Dist = Dist;
+        AddNewCustomer.Dist = Dist;
     }
 
     public static String getLandmark() {
@@ -89,7 +89,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }
 
     public static void setLandmark(String Landmark) {
-        NewJFrame3.Landmark = Landmark;
+        AddNewCustomer.Landmark = Landmark;
     }
 
     public static int getPINCODE() {
@@ -97,7 +97,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }
 
     public static void setPINCODE(int PINCODE) {
-        NewJFrame3.PINCODE = PINCODE;
+        AddNewCustomer.PINCODE = PINCODE;
     }
 
     public static String getAddress() {
@@ -105,7 +105,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }
 
     public static void setAddress(String Address) {
-        NewJFrame3.Address = Address;
+        AddNewCustomer.Address = Address;
     }
 
     public static String getCity() {
@@ -113,7 +113,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }
 
     public static void setCity(String City) {
-        NewJFrame3.City = City;
+        AddNewCustomer.City = City;
     }
 
     public static String getCountry() {
@@ -121,7 +121,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }
 
     public static void setCountry(String Country) {
-        NewJFrame3.Country = Country;
+        AddNewCustomer.Country = Country;
     }
 
     public String getUserID() {
@@ -150,7 +150,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame3
      */
-    public NewJFrame3() {
+    public AddNewCustomer() {
 
         initComponents();
 
@@ -167,30 +167,30 @@ public class NewJFrame3 extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField_f_Name = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextField_L_Name = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jTextField_Father_Name = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField_cust_mob = new javax.swing.JTextField();
+        jTextField_cust_Mob_Name = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jTextField_pin = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jTextField_Town_Name = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        jTextField_Dist_Name = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        jTextField_landMark = new javax.swing.JTextField();
+        jTextField_Address = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        jTextField_Vill_Name = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jTextField8 = new javax.swing.JTextField();
+        jTextField_City_Name = new javax.swing.JTextField();
         jXLabel2 = new org.jdesktop.swingx.JXLabel();
         jButton3 = new javax.swing.JButton();
 
@@ -203,7 +203,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
         jLabel1.setText("First Name :");
         jLabel1.setOpaque(true);
 
-        jTextField1.getDocument().addDocumentListener(new DocumentListener()
+        jTextField_f_Name.getDocument().addDocumentListener(new DocumentListener()
             {
                 @Override
                 public void removeUpdate(DocumentEvent e)
@@ -214,12 +214,17 @@ public class NewJFrame3 extends javax.swing.JFrame {
                 @Override
                 public void insertUpdate(DocumentEvent e)
                 {
-                    validateInput(jTextField1.getText(),"[a-zA-Z]+");
+                    validateInput(jTextField_f_Name.getText(),"[a-zA-Z]+");
                 }
 
                 @Override
                 public void changedUpdate(DocumentEvent e) {}
                 // Not needed for plain-text fields
+            });
+            jTextField_f_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+                public void focusLost(java.awt.event.FocusEvent evt) {
+                    jTextField_f_NameFocusLost(evt);
+                }
             });
 
             jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -228,7 +233,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
             jLabel2.setText("Last Name :");
             jLabel2.setOpaque(true);
 
-            jTextField2.getDocument().addDocumentListener(new DocumentListener()
+            jTextField_L_Name.getDocument().addDocumentListener(new DocumentListener()
                 {
                     @Override
                     public void removeUpdate(DocumentEvent e)
@@ -239,12 +244,17 @@ public class NewJFrame3 extends javax.swing.JFrame {
                     @Override
                     public void insertUpdate(DocumentEvent e)
                     {
-                        validateInput(jTextField2.getText(),"[a-zA-Z]+");
+                        validateInput(jTextField_L_Name.getText(),"[a-zA-Z]+");
                     }
 
                     @Override
                     public void changedUpdate(DocumentEvent e) {}
                     // Not needed for plain-text fields
+                });
+                jTextField_L_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+                    public void focusLost(java.awt.event.FocusEvent evt) {
+                        jTextField_L_NameFocusLost(evt);
+                    }
                 });
 
                 jLabel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -253,7 +263,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
                 jLabel3.setText("Father's Name :");
                 jLabel3.setOpaque(true);
 
-                jTextField3.getDocument().addDocumentListener(new DocumentListener()
+                jTextField_Father_Name.getDocument().addDocumentListener(new DocumentListener()
                     {
                         @Override
                         public void removeUpdate(DocumentEvent e)
@@ -264,12 +274,17 @@ public class NewJFrame3 extends javax.swing.JFrame {
                         @Override
                         public void insertUpdate(DocumentEvent e)
                         {
-                            validateInput(jTextField3.getText(),"^[a-zA-Z]+\\s+[a-zA-Z]+$");
+                            validateInput(jTextField_Father_Name.getText(),"^[a-zA-Z]+\\s+[a-zA-Z]+$");
                         }
 
                         @Override
                         public void changedUpdate(DocumentEvent e) {}
                         // Not needed for plain-text fields
+                    });
+                    jTextField_Father_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+                        public void focusLost(java.awt.event.FocusEvent evt) {
+                            jTextField_Father_NameFocusLost(evt);
+                        }
                     });
 
                     jLabel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -278,7 +293,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
                     jLabel4.setText("Mobile :");
                     jLabel4.setOpaque(true);
 
-                    jTextField_cust_mob.getDocument().addDocumentListener(new DocumentListener()
+                    jTextField_cust_Mob_Name.getDocument().addDocumentListener(new DocumentListener()
                         {
                             @Override
                             public void removeUpdate(DocumentEvent e)
@@ -289,12 +304,17 @@ public class NewJFrame3 extends javax.swing.JFrame {
                             @Override
                             public void insertUpdate(DocumentEvent e)
                             {
-                                validateInput(jTextField_cust_mob.getText(),"\\d+");
+                                validateInput(jTextField_cust_Mob_Name.getText(),"\\d+");
                             }
 
                             @Override
                             public void changedUpdate(DocumentEvent e) {}
                             // Not needed for plain-text fields
+                        });
+                        jTextField_cust_Mob_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+                            public void focusLost(java.awt.event.FocusEvent evt) {
+                                jTextField_cust_Mob_NameFocusLost(evt);
+                            }
                         });
 
                         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -303,12 +323,17 @@ public class NewJFrame3 extends javax.swing.JFrame {
                         jLabel5.setText("PINCODE :");
                         jLabel5.setOpaque(true);
 
-                        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+                        jTextField_pin.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                jTextField5ActionPerformed(evt);
+                                jTextField_pinActionPerformed(evt);
                             }
                         });
-                        jTextField5.getDocument().addDocumentListener(new DocumentListener()
+                        jTextField_pin.addFocusListener(new java.awt.event.FocusAdapter() {
+                            public void focusLost(java.awt.event.FocusEvent evt) {
+                                jTextField_pinFocusLost(evt);
+                            }
+                        });
+                        jTextField_pin.getDocument().addDocumentListener(new DocumentListener()
                             {
                                 @Override
                                 public void removeUpdate(DocumentEvent e)
@@ -319,7 +344,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                 @Override
                                 public void insertUpdate(DocumentEvent e)
                                 {
-                                    validateInput(jTextField5.getText(),"\\d+");
+                                    validateInput(jTextField_pin.getText(),"\\d+");
                                 }
 
                                 @Override
@@ -333,7 +358,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
                             jLabel6.setText("Town :");
                             jLabel6.setOpaque(true);
 
-                            jTextField6.getDocument().addDocumentListener(new DocumentListener()
+                            jTextField_Town_Name.getDocument().addDocumentListener(new DocumentListener()
                                 {
                                     @Override
                                     public void removeUpdate(DocumentEvent e)
@@ -344,12 +369,17 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                     @Override
                                     public void insertUpdate(DocumentEvent e)
                                     {
-                                        validateInput(jTextField6.getText(),"[a-zA-Z]+");
+                                        validateInput(jTextField_Town_Name.getText(),"[a-zA-Z]+");
                                     }
 
                                     @Override
                                     public void changedUpdate(DocumentEvent e) {}
                                     // Not needed for plain-text fields
+                                });
+                                jTextField_Town_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+                                    public void focusLost(java.awt.event.FocusEvent evt) {
+                                        jTextField_Town_NameFocusLost(evt);
+                                    }
                                 });
 
                                 jLabel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -358,12 +388,17 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                 jLabel7.setText("District :");
                                 jLabel7.setOpaque(true);
 
-                                jTextField7.addActionListener(new java.awt.event.ActionListener() {
+                                jTextField_Dist_Name.addActionListener(new java.awt.event.ActionListener() {
                                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                        jTextField7ActionPerformed(evt);
+                                        jTextField_Dist_NameActionPerformed(evt);
                                     }
                                 });
-                                jTextField7.getDocument().addDocumentListener(new DocumentListener()
+                                jTextField_Dist_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+                                    public void focusLost(java.awt.event.FocusEvent evt) {
+                                        jTextField_Dist_NameFocusLost(evt);
+                                    }
+                                });
+                                jTextField_Dist_Name.getDocument().addDocumentListener(new DocumentListener()
                                     {
                                         @Override
                                         public void removeUpdate(DocumentEvent e)
@@ -374,7 +409,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                         @Override
                                         public void insertUpdate(DocumentEvent e)
                                         {
-                                            validateInput(jTextField7.getText(),"[a-zA-Z]+");
+                                            validateInput(jTextField_Dist_Name.getText(),"[a-zA-Z]+");
                                         }
 
                                         @Override
@@ -394,7 +429,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                     jLabel9.setText("Address :");
                                     jLabel9.setOpaque(true);
 
-                                    jTextField9.getDocument().addDocumentListener(new DocumentListener()
+                                    jTextField_landMark.getDocument().addDocumentListener(new DocumentListener()
                                         {
                                             @Override
                                             public void removeUpdate(DocumentEvent e)
@@ -405,20 +440,30 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                             @Override
                                             public void insertUpdate(DocumentEvent e)
                                             {
-                                                validateInput(jTextField9.getText(),"^[a-zA-Z]+\\s+[a-zA-Z].*$");
+                                                validateInput(jTextField_landMark.getText(),"^[a-zA-Z]+\\s+[a-zA-Z].*$");
                                             }
 
                                             @Override
                                             public void changedUpdate(DocumentEvent e) {}
                                             // Not needed for plain-text fields
                                         });
-
-                                        jTextField10.addActionListener(new java.awt.event.ActionListener() {
-                                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                jTextField10ActionPerformed(evt);
+                                        jTextField_landMark.addFocusListener(new java.awt.event.FocusAdapter() {
+                                            public void focusLost(java.awt.event.FocusEvent evt) {
+                                                jTextField_landMarkFocusLost(evt);
                                             }
                                         });
-                                        jTextField10.getDocument().addDocumentListener(new DocumentListener()
+
+                                        jTextField_Address.addActionListener(new java.awt.event.ActionListener() {
+                                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                jTextField_AddressActionPerformed(evt);
+                                            }
+                                        });
+                                        jTextField_Address.addFocusListener(new java.awt.event.FocusAdapter() {
+                                            public void focusLost(java.awt.event.FocusEvent evt) {
+                                                jTextField_AddressFocusLost(evt);
+                                            }
+                                        });
+                                        jTextField_Address.getDocument().addDocumentListener(new DocumentListener()
                                             {
                                                 @Override
                                                 public void removeUpdate(DocumentEvent e)
@@ -429,7 +474,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                                 @Override
                                                 public void insertUpdate(DocumentEvent e)
                                                 {
-                                                    validateInput(jTextField10.getText(),"^[a-zA-Z]+\\s+[a-zA-Z].*$");
+                                                    validateInput(jTextField_Address.getText(),"^[a-zA-Z]+\\s+[a-zA-Z].*$");
                                                 }
 
                                                 @Override
@@ -455,12 +500,17 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                             jLabel13.setText("Village :");
                                             jLabel13.setOpaque(true);
 
-                                            jTextField13.addActionListener(new java.awt.event.ActionListener() {
+                                            jTextField_Vill_Name.addActionListener(new java.awt.event.ActionListener() {
                                                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                    jTextField13ActionPerformed(evt);
+                                                    jTextField_Vill_NameActionPerformed(evt);
                                                 }
                                             });
-                                            jTextField13.getDocument().addDocumentListener(new DocumentListener()
+                                            jTextField_Vill_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+                                                public void focusLost(java.awt.event.FocusEvent evt) {
+                                                    jTextField_Vill_NameFocusLost(evt);
+                                                }
+                                            });
+                                            jTextField_Vill_Name.getDocument().addDocumentListener(new DocumentListener()
                                                 {
                                                     @Override
                                                     public void removeUpdate(DocumentEvent e)
@@ -471,7 +521,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                                     @Override
                                                     public void insertUpdate(DocumentEvent e)
                                                     {
-                                                        validateInput(jTextField13.getText(),"^[a-zA-Z]+\\s+[a-zA-Z]+.*$");
+                                                        validateInput(jTextField_Vill_Name.getText(),"^[a-zA-Z]+\\s+[a-zA-Z]+.*$");
                                                     }
 
                                                     @Override
@@ -493,7 +543,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                                     }
                                                 });
 
-                                                jTextField8.getDocument().addDocumentListener(new DocumentListener()
+                                                jTextField_City_Name.getDocument().addDocumentListener(new DocumentListener()
                                                     {
                                                         @Override
                                                         public void removeUpdate(DocumentEvent e)
@@ -504,12 +554,17 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                                         @Override
                                                         public void insertUpdate(DocumentEvent e)
                                                         {
-                                                            validateInput(jTextField8.getText(),"[a-zA-Z]+");
+                                                            validateInput(jTextField_City_Name.getText(),"[a-zA-Z]+");
                                                         }
 
                                                         @Override
                                                         public void changedUpdate(DocumentEvent e) {}
                                                         // Not needed for plain-text fields
+                                                    });
+                                                    jTextField_City_Name.addFocusListener(new java.awt.event.FocusAdapter() {
+                                                        public void focusLost(java.awt.event.FocusEvent evt) {
+                                                            jTextField_City_NameFocusLost(evt);
+                                                        }
                                                     });
 
                                                     jXLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -545,17 +600,17 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                                                         .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                        .addComponent(jTextField1)
-                                                                        .addComponent(jTextField2)
-                                                                        .addComponent(jTextField3)
-                                                                        .addComponent(jTextField_cust_mob)
-                                                                        .addComponent(jTextField13)
-                                                                        .addComponent(jTextField5)
-                                                                        .addComponent(jTextField6)
-                                                                        .addComponent(jTextField7)
-                                                                        .addComponent(jTextField8)
-                                                                        .addComponent(jTextField9)
-                                                                        .addComponent(jTextField10)
+                                                                        .addComponent(jTextField_f_Name)
+                                                                        .addComponent(jTextField_L_Name)
+                                                                        .addComponent(jTextField_Father_Name)
+                                                                        .addComponent(jTextField_cust_Mob_Name)
+                                                                        .addComponent(jTextField_Vill_Name)
+                                                                        .addComponent(jTextField_pin)
+                                                                        .addComponent(jTextField_Town_Name)
+                                                                        .addComponent(jTextField_Dist_Name)
+                                                                        .addComponent(jTextField_City_Name)
+                                                                        .addComponent(jTextField_landMark)
+                                                                        .addComponent(jTextField_Address)
                                                                         .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
                                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                     .addGroup(layout.createSequentialGroup()
@@ -575,47 +630,47 @@ public class NewJFrame3 extends javax.swing.JFrame {
                                                             .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGap(26, 26, 26)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextField_f_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jLabel1))
                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                 .addComponent(jLabel2)
-                                                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(jTextField_L_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextField_Father_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jLabel3))
                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                 .addComponent(jLabel4)
-                                                                .addComponent(jTextField_cust_mob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(jTextField_cust_Mob_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addGap(14, 14, 14)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(jTextField_Vill_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextField_pin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jLabel5))
                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextField_Town_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jLabel6))
                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextField_Dist_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jLabel7))
                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextField_City_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jLabel8))
                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextField_landMark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jLabel11))
                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jTextField_Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(jLabel9))
                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -634,25 +689,25 @@ public class NewJFrame3 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        First_Name = jTextField1.getText();
+        First_Name = jTextField_f_Name.getText();
 
-        Last_Name = jTextField2.getText();
-        FatherName = jTextField3.getText();
-        Mobile = jTextField_cust_mob.getText();
-        Town = jTextField6.getText();
-        Dist = jTextField7.getText();
-        City = jTextField8.getText();
-        Vill = jTextField13.getText();
-        PINCODE = Integer.parseInt(jTextField5.getText());
-        Address = jTextField10.getText();
-        Landmark = jTextField9.getText();   
+        Last_Name = jTextField_L_Name.getText();
+        FatherName = jTextField_Father_Name.getText();
+        Mobile = jTextField_cust_Mob_Name.getText();
+        Town = jTextField_Town_Name.getText();
+        Dist = jTextField_Dist_Name.getText();
+        City = jTextField_City_Name.getText();
+        Vill = jTextField_Vill_Name.getText();
+        PINCODE = Integer.parseInt(jTextField_pin.getText());
+        Address = jTextField_Address.getText();
+        Landmark = jTextField_landMark.getText();   
         UserID = First_Name + Mobile.substring(Mobile.length() - 5, Mobile.length());
         String ret = jitu();
         System.out.println(ret);
         String dsp = "<html><b><font color= #0000ff size=10> ~*~Welcome~*~</font></b><br><br><font color= #b22222 size=6> "+First_Name+"  "+Last_Name+"</font></html>";
         ImageIcon icon_userid = new ImageIcon(this.getClass().getResource("/img/success.png"));
         JOptionPane.showMessageDialog(this.getComponent(0), dsp, "Valid UserID", JOptionPane.INFORMATION_MESSAGE,icon_userid);
-        JOptionPane.showMessageDialog(this.getComponent(0), ret);
+        JOptionPane.showMessageDialog(this.getComponent(0), "UserID : "+ret, "UserID",JOptionPane.INFORMATION_MESSAGE);
         System.out.println("########"+UserID);
         if(ret != null)
         {
@@ -679,21 +734,152 @@ public class NewJFrame3 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jDateChooser1PropertyChange
 
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
+    private void jTextField_Vill_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_Vill_NameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
+    }//GEN-LAST:event_jTextField_Vill_NameActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void jTextField_pinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_pinActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_jTextField_pinActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void jTextField_Dist_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_Dist_NameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_jTextField_Dist_NameActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void jTextField_AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_AddressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_jTextField_AddressActionPerformed
+
+    private void jTextField_f_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_f_NameFocusLost
+        // TODO add your handling code here:
+          if(!jTextField_f_Name.getText().isEmpty() &&  !jTextField_f_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect First Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_f_Name.setText("");
+            jTextField_f_Name.requestFocusInWindow();
+            
+        }else
+           jTextField_f_Name.setText(jTextField_f_Name.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_f_NameFocusLost
+
+    private void jTextField_L_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_L_NameFocusLost
+        // TODO add your handling code here:
+        if(!jTextField_L_Name.getText().isEmpty() &&  !jTextField_L_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Last Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_L_Name.setText("");
+            jTextField_L_Name.requestFocusInWindow();
+            
+        }else
+           jTextField_L_Name.setText(jTextField_L_Name.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_L_NameFocusLost
+
+    private void jTextField_Father_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Father_NameFocusLost
+        // TODO add your handling code here:
+             if(!jTextField_Father_Name.getText().isEmpty() &&  !jTextField_Father_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Father Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_Father_Name.setText("");
+            jTextField_Father_Name.requestFocusInWindow();
+            
+        }else
+           jTextField_Father_Name.setText(jTextField_Father_Name.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_Father_NameFocusLost
+
+    private void jTextField_cust_Mob_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_cust_Mob_NameFocusLost
+        // TODO add your handling code here:
+           if(!jTextField_cust_Mob_Name.getText().isEmpty() &&  !jTextField_cust_Mob_Name.getText().matches("^\\d{10}$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Mobile Number", "Invalid Mobile", JOptionPane.WARNING_MESSAGE);
+            jTextField_cust_Mob_Name.setText("");
+            jTextField_cust_Mob_Name.requestFocusInWindow();
+            
+        }
+    }//GEN-LAST:event_jTextField_cust_Mob_NameFocusLost
+
+    private void jTextField_Vill_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Vill_NameFocusLost
+        // TODO add your handling code here:
+          if(!jTextField_Vill_Name.getText().isEmpty() &&  !jTextField_Vill_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Village Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_Vill_Name.setText("");
+            jTextField_Vill_Name.requestFocusInWindow();
+            
+        }else
+           jTextField_Vill_Name.setText(jTextField_Vill_Name.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_Vill_NameFocusLost
+
+    private void jTextField_pinFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_pinFocusLost
+        // TODO add your handling code here:
+        if(!jTextField_pin.getText().isEmpty() &&  !jTextField_pin.getText().matches("^\\d{6}$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect PINCODE", "Invalid PIN", JOptionPane.WARNING_MESSAGE);
+            jTextField_pin.setText("");
+            jTextField_pin.requestFocusInWindow();
+            
+        }
+    }//GEN-LAST:event_jTextField_pinFocusLost
+
+    private void jTextField_Town_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Town_NameFocusLost
+        // TODO add your handling code here:
+        if(!jTextField_Town_Name.getText().isEmpty() &&  !jTextField_Town_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Town Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_Town_Name.setText("");
+            jTextField_Town_Name.requestFocusInWindow();
+            
+        }else
+           jTextField_Town_Name.setText(jTextField_Town_Name.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_Town_NameFocusLost
+
+    private void jTextField_Dist_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_Dist_NameFocusLost
+        // TODO add your handling code here:
+        if(!jTextField_Dist_Name.getText().isEmpty() &&  !jTextField_Dist_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect District Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_Dist_Name.setText("");
+            jTextField_Dist_Name.requestFocusInWindow();
+            
+        }else
+           jTextField_Dist_Name.setText(jTextField_Dist_Name.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_Dist_NameFocusLost
+
+    private void jTextField_City_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_City_NameFocusLost
+        // TODO add your handling code here:
+          if(!jTextField_City_Name.getText().isEmpty() &&  !jTextField_City_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect City Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_City_Name.setText("");
+            jTextField_City_Name.requestFocusInWindow();
+            
+        }else
+           jTextField_City_Name.setText(jTextField_City_Name.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_City_NameFocusLost
+
+    private void jTextField_landMarkFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_landMarkFocusLost
+        // TODO add your handling code here:
+                  if(!jTextField_landMark.getText().isEmpty() &&  !jTextField_landMark.getText().matches("^([a-zA-Z0-9]{3,100}\\s*)+$"))
+        {
+            JOptionPane.showMessageDialog(this, "Incorrect Landmark Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+            jTextField_landMark.setText("");
+            jTextField_landMark.requestFocusInWindow();
+            
+        }else
+           jTextField_landMark.setText(jTextField_landMark.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_landMarkFocusLost
+
+    private void jTextField_AddressFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_AddressFocusLost
+        // TODO add your handling code here:
+        jTextField_Address.setText(jTextField_Address.getText().toUpperCase());
+//        if(!jTextField_Address.getText().isEmpty() &&  !jTextField_Address.getText().matches("^([a-zA-Z]{3,50}\\s*)+$"))
+//        {
+//            JOptionPane.showMessageDialog(this, "Incorrect Address Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
+//            jTextField_Address.setText("");
+//            jTextField_Address.requestFocusInWindow();
+//            
+//        }else
+           jTextField_Address.setText(jTextField_Address.getText().toUpperCase());
+    }//GEN-LAST:event_jTextField_AddressFocusLost
 
     /**
      * @param args the command line arguments
@@ -712,21 +898,22 @@ public class NewJFrame3 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddNewCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddNewCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddNewCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddNewCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
 
-                new NewJFrame3().setVisible(true);
+                new AddNewCustomer().setVisible(true);
             }
         });
     }
@@ -748,17 +935,17 @@ public class NewJFrame3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField jTextField_cust_mob;
+    private javax.swing.JTextField jTextField_Address;
+    private javax.swing.JTextField jTextField_City_Name;
+    private javax.swing.JTextField jTextField_Dist_Name;
+    private javax.swing.JTextField jTextField_Father_Name;
+    private javax.swing.JTextField jTextField_L_Name;
+    private javax.swing.JTextField jTextField_Town_Name;
+    private javax.swing.JTextField jTextField_Vill_Name;
+    private javax.swing.JTextField jTextField_cust_Mob_Name;
+    private javax.swing.JTextField jTextField_f_Name;
+    private javax.swing.JTextField jTextField_landMark;
+    private javax.swing.JTextField jTextField_pin;
     private org.jdesktop.swingx.JXLabel jXLabel2;
     // End of variables declaration//GEN-END:variables
 public String toMyString() {
@@ -844,7 +1031,7 @@ public String toMyString() {
 //    Matcher m = r.matcher(text);
 //    if (!m.matches())
 //    {
-//      JOptionPane.showMessageDialog(NewJFrame3.this,"Error", "Validation", JOptionPane.WARNING_MESSAGE);
+//      JOptionPane.showMessageDialog(AddNewCustomer.this,"Error", "Validation", JOptionPane.WARNING_MESSAGE);
 //    }
     
   }

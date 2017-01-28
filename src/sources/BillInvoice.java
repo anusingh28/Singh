@@ -1,35 +1,50 @@
 package sources;
 
-
+import com.itextpdf.text.Document;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfTemplate;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.awt.print.PageFormat;
+import java.awt.print.Paper;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.lang.reflect.Field;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableCellRenderer;
+import static sources.ComponentImageCapture.getScreenShot;
+
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author sijitend
  */
 public class BillInvoice extends javax.swing.JFrame {
 
-        public static MyMain iClass;
+    public static MyMain iClass;
     public static String Bill_No;
     public static String Bill_Date;
     public static String Bill_Item;
@@ -49,6 +64,7 @@ public class BillInvoice extends javax.swing.JFrame {
     public static String Other;
     public static String Amount_Recvd;
     public static String Toatl_amount;
+    private final String sBill_Number;
 
     public void setBill_Type_Purchase(String Bill_Type_Purchase) {
         this.Bill_Type_Purchase = Bill_Type_Purchase;
@@ -70,43 +86,41 @@ public class BillInvoice extends javax.swing.JFrame {
         this.Item_wastage_Purchase = Item_wastage_Purchase;
     }
 
-
     public String Bill_Type_Purchase;
     public String Item_Purchase;
     public String Item_Stamp_Purchase;
     public String Bill_Item_wt_Purchase;
     public String Item_wastage_Purchase;
-    
-    
-       
-public String toMyString() {
-  StringBuilder result = new StringBuilder();
-  String newLine = System.getProperty("line.separator");
 
-  result.append( this.getClass().getName() );
-  result.append( " Object {" );
-  result.append(newLine);
+    public String toMyString() {
+        StringBuilder result = new StringBuilder();
+        String newLine = System.getProperty("line.separator");
 
-  //determine fields declared in this class only (no fields of superclass)
-  Field[] fields = this.getClass().getDeclaredFields();
+        result.append(this.getClass().getName());
+        result.append(" Object {");
+        result.append(newLine);
 
-  //print field names paired with their values
-  for ( Field field : fields  ) {
-    result.append("  ");
-    try {
-      result.append( field.getName() );
-      result.append(": ");
-      //requires access to private field:
-      result.append( field.get(this) );
-    } catch ( IllegalAccessException ex ) {
-      System.out.println(ex);
+        //determine fields declared in this class only (no fields of superclass)
+        Field[] fields = this.getClass().getDeclaredFields();
+
+        //print field names paired with their values
+        for (Field field : fields) {
+            result.append("  ");
+            try {
+                result.append(field.getName());
+                result.append(": ");
+                //requires access to private field:
+                result.append(field.get(this));
+            } catch (IllegalAccessException ex) {
+                System.out.println(ex);
+            }
+            result.append(newLine);
+        }
+        result.append("}");
+
+        return result.toString();
     }
-    result.append(newLine);
-  }
-  result.append("}");
 
-  return result.toString();
-}
     public void setBill_No(String Bill_No) {
         this.Bill_No = Bill_No;
     }
@@ -155,7 +169,6 @@ public String toMyString() {
         this.Item_Qt = Item_Qt;
     }
 
-    
     public void setItem_Stamp(String Item_Stamp) {
         this.Item_Stamp = Item_Stamp;
     }
@@ -184,17 +197,11 @@ public String toMyString() {
         this.Toatl_amount = Toatl_amount;
     }
 
-    
-    
-    
-    
-    
-    
-    
     /**
      * Creates new form BillInvoice
      */
-    public BillInvoice() {
+    public BillInvoice(String bill_num) {
+        sBill_Number = bill_num;
         initComponents();
         //setVal();
     }
@@ -237,10 +244,10 @@ public String toMyString() {
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 myclose(evt);
@@ -249,31 +256,30 @@ public String toMyString() {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jPanel1.setOpaque(false);
 
         jXLabel3.setText("  Bill No. :");
 
         jXLabel2.setText("  Mobile :");
 
-        jTextField_Bill_No.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
+        jTextField_Bill_No.setFont(new java.awt.Font("Monospaced", 1, 11)); // NOI18N
 
-        jTextField_Mob.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
+        jTextField_Mob.setFont(new java.awt.Font("Monospaced", 1, 11)); // NOI18N
 
         jXLabel6.setText("  Date :");
 
-        jTextField_Date.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
+        jTextField_Date.setFont(new java.awt.Font("Monospaced", 1, 11)); // NOI18N
 
         jXLabel7.setText("  Gold  Rate :");
 
-        jTextField_Gold_Rate.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
+        jTextField_Gold_Rate.setFont(new java.awt.Font("Monospaced", 1, 11)); // NOI18N
 
         jXLabel9.setText("  Silver Rate :");
 
-        jTextField_Silver_Rate.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
+        jTextField_Silver_Rate.setFont(new java.awt.Font("Monospaced", 1, 11)); // NOI18N
 
         jXLabel8.setText("UserID :");
 
-        jTextField_UserID.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
+        jTextField_UserID.setFont(new java.awt.Font("Monospaced", 1, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -285,7 +291,7 @@ public String toMyString() {
                     .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jXLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jXLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField_Gold_Rate, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                     .addComponent(jTextField_Bill_No)
@@ -293,23 +299,23 @@ public String toMyString() {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 17, Short.MAX_VALUE)
+                        .addGap(12, 12, 12)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jXLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(27, 27, 27)
+                                .addComponent(jTextField_Date, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jXLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(178, 178, 178))))
+                                .addGap(188, 188, 188))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jXLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField_UserID, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
                             .addComponent(jTextField_Silver_Rate))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -340,10 +346,10 @@ public String toMyString() {
 
         jXLabel5.setText("  Bill To : ");
 
-        jTextField_Bill_To.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
+        jTextField_Bill_To.setFont(new java.awt.Font("Monospaced", 1, 11)); // NOI18N
 
         jTextArea_Address.setColumns(20);
-        jTextArea_Address.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
+        jTextArea_Address.setFont(new java.awt.Font("Monospaced", 1, 11)); // NOI18N
         jTextArea_Address.setRows(5);
         jScrollPane3.setViewportView(jTextArea_Address);
 
@@ -416,7 +422,7 @@ public String toMyString() {
 
         jXLabel1.setBackground(new java.awt.Color(102, 102, 255));
         jXLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jXLabel1.setText("<html><b><font size=11> ~* My Shop Name *~</font></b><br><font size=4><p style=\"text-ident: 5em;\"></p>C/o  : Shop Owner Name</style></font><br><font size=4> Shop Full Address</font><br></html> ");
+        jXLabel1.setText("<html><b><font size=11> ~* "+sources.LoginScreen.SHOP_NAME +"*~</font></b><br><font size=4><p style=\"text-ident: 5em;\"></p>C/o  : "+sources.LoginScreen.OWNER_NAME+", Mob : "+sources.LoginScreen.OWNER_MOB+"</style></font><br><font size=4> "+sources.LoginScreen.SHOP_ADDRESS+"</font><br></html> ");
         jXLabel1.setLineWrap(true);
         jXLabel1.setOpaque(true);
 
@@ -429,6 +435,7 @@ public String toMyString() {
                 "S.N", "Item", "Weight", "Type", "Labour Charge", "Stamp", "Price"
             }
         ));
+        jTable1.setFillsViewportHeight(true);
         jTable1.setShowHorizontalLines(false);
         jTable1.setShowVerticalLines(false);
         //"S.N", "Item", "Weight", "Type", "Labour Charge", "Stamp", "Price"
@@ -458,7 +465,7 @@ public String toMyString() {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jScrollPane4)
-                    .addComponent(jXLabel1)
+                    .addComponent(jXLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -473,28 +480,23 @@ public String toMyString() {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(41, 41, 41))
         );
 
-        jButton1.setText("  OK ");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 204));
+        jButton1.setText("PRINT");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Modify");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
             }
         });
 
@@ -502,23 +504,19 @@ public String toMyString() {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(274, 274, 274)
-                .addComponent(jButton1)
-                .addGap(42, 42, 42)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(326, 326, 326)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(113, 113, 113))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
         );
 
         pack();
@@ -527,23 +525,40 @@ public String toMyString() {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
+        getscreenshot(sBill_Number);
+        PrinterJob pjob = PrinterJob.getPrinterJob();
+        PageFormat preformat = pjob.defaultPage();
+        preformat.setOrientation(PageFormat.PORTRAIT);
         
-               PrinterJob pjob = PrinterJob.getPrinterJob();
-PageFormat preformat = pjob.defaultPage();
-preformat.setOrientation(PageFormat.PORTRAIT);
-PageFormat postformat = pjob.pageDialog(preformat);
+        PageFormat postformat = pjob.pageDialog(preformat);
+        
+//        Paper paper = new Paper();
+//        double dotsperinch = 72;
+//        double margin = 0.125*dotsperinch;
+//        double w = 8.5*dotsperinch;
+//        double h = 11*dotsperinch;
+//        paper.setImageableArea(margin, margin, w-2*margin, h-2*margin);
+//        paper.setSize(w, h);
+//        PageFormat pfmt = pjob.defaultPage();
+//        pfmt.setOrientation(PageFormat.PORTRAIT);
+//        pfmt.setPaper(paper);
+        
 //If user does not hit cancel then print.
-if (preformat != postformat) {
-    //Set print component
-    pjob.setPrintable(new Printer(jPanel1), postformat);
-    if (pjob.printDialog()) {
-        try {
-            pjob.print();
-        } catch (PrinterException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        if (preformat != postformat) 
+        {
+            pjob.setPrintable(new Printer(jPanel1), postformat);
+            if (pjob.printDialog()) 
+            {
+                try {
+                    pjob.print();
+                } catch (PrinterException ex) {
+                    Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
-    }
-}
+        int iRet = JOptionPane.showConfirmDialog(BillInvoice.this, "Want to generate Bill Again ?", "Information", JOptionPane.INFORMATION_MESSAGE);
+        if (iRet != 0) 
+            this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void myclose(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_myclose
@@ -551,11 +566,45 @@ if (preformat != postformat) {
         iClass.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_myclose
+    public BufferedImage getImage(Component c) {
+    BufferedImage bi = null;
+    try {
+        bi = new BufferedImage(c.getWidth(),c.getHeight(), BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2d =bi.createGraphics();
+        c.print(g2d);
+        g2d.dispose();
+    } catch (Exception e) {
+        e.printStackTrace();
+        return null;
+    }
+    return bi;
+}
+    
+    public void getscreenshot(String bill_num)
+    {
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+            BufferedImage img = getScreenShot(jPanel1 );
+              JOptionPane.showMessageDialog(
+                null,
+                new JLabel(
+                  new ImageIcon(
+                    img.getScaledInstance(
+                      img.getWidth(null)/2,
+                      img.getHeight(null)/2,
+                      Image.SCALE_SMOOTH )
+                    )));
+              try {
+                // write the image as a PNG
+                ImageIO.write(
+                  img,
+                  "png",
+                  new File(bill_num+".png"));
+                //jXTable1.print();
+                //this.printAll(null);
+              } catch(Exception e) {
+                e.printStackTrace();
+              }
+    }
     /**
      * @param args the command line arguments
      */
@@ -584,17 +633,16 @@ if (preformat != postformat) {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BillInvoice().setVisible(true);
-            }
-        });
+      //  java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new BillInvoice().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.painter.BusyPainter busyPainter1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     public static javax.swing.JPanel jPanel1;
@@ -602,7 +650,7 @@ if (preformat != postformat) {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
+    public static javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JTable jTable1;
     public static javax.swing.JTextArea jTextArea_Address;
     public static javax.swing.JTextField jTextField_Bill_No;
@@ -624,8 +672,6 @@ if (preformat != postformat) {
     public static org.jdesktop.swingx.JXTable jXTable_Invoice;
     // End of variables declaration//GEN-END:variables
 
-
-
     public class LabelCellRenderer3 extends DefaultTableCellRenderer {
 
         public Component getTableCellRendererComponent(JTable table, Object oValue, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -633,12 +679,10 @@ if (preformat != postformat) {
             String value = (String) oValue;
             JLabel label = (JLabel) c;
             label.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-            if(row ==6 && column ==0)
-            {
-                label.setFont(new  java.awt.Font("Tahoma", Font.BOLD, 16));
-            }
-            else{
-                label.setFont(new  java.awt.Font("Tahoma", Font.PLAIN, 14));
+            if (row == 6 && column == 0) {
+                label.setFont(new java.awt.Font("Tahoma", Font.BOLD, 16));
+            } else {
+                label.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14));
             }
             label.setBackground(Color.green);
             label.setForeground(Color.black);
@@ -649,9 +693,8 @@ if (preformat != postformat) {
         }
     }
 
-    public  void setVal()
-    {
-    
+    public void setVal() {
+
         jTextField_Bill_To.setText(Customer_Name);
         jTextField_Bill_No.setText(Bill_No);
         jTextArea_Address.setText(Customer_Address);
@@ -669,21 +712,21 @@ if (preformat != postformat) {
         values[6] = Bill_Item_Labour;
         values[7] = Item_Stamp;
         values[8] = "0";
-        
+
         for (int i = 0; i < values.length; i++) {
-                            System.out.println(">> : " + values[i]);
-                            jTable1.setValueAt(values[i], 0, i);
-                        }
+            System.out.println(">> : " + values[i]);
+            jTable1.setValueAt(values[i], 0, i);
+        }
         /*
         
-        {"Invoice Subtotal :", null},
-        {"Tax Rate : ", null},
-        {"Sales Tax", null},
-        {"Other", null},
-        {"Amount Received : ", null},
-        {"Total : ", null}
-        */
-        
+         {"Invoice Subtotal :", null},
+         {"Tax Rate : ", null},
+         {"Sales Tax", null},
+         {"Other", null},
+         {"Amount Received : ", null},
+         {"Total : ", null}
+         */
+
         String[] values2 = new String[jXTable_Invoice.getRowCount()];
         values2[0] = Invoice_SubTotal;
         values2[1] = Tax_Rate;
@@ -691,16 +734,12 @@ if (preformat != postformat) {
         values2[3] = Other;
         values2[4] = Amount_Recvd;
         values2[5] = Toatl_amount;
-       
-        
+
         for (int i = 0; i < values2.length; i++) {
-                            System.out.println(">> : " + values2[i]);
-                            jXTable_Invoice.setValueAt(values2[i], i, 1);
-                        }
-        
-        
-        
+            System.out.println(">> : " + values2[i]);
+            jXTable_Invoice.setValueAt(values2[i], i, 1);
+        }
+
     }
-    
 
 }

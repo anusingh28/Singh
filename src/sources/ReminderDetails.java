@@ -55,6 +55,7 @@ public class ReminderDetails extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 myclose(evt);
@@ -98,18 +99,20 @@ public class ReminderDetails extends javax.swing.JFrame {
         jXTable_Mort.setFont(new java.awt.Font("Tahoma", 1, 14));
         jXTable_Mort.setGridColor(new java.awt.Color(0, 204, 0));
         jXTable_Mort.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());
+        jXTable_Mort.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 978, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 50, Short.MAX_VALUE)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("   GIRVI   ", jPanel2);
@@ -127,6 +130,7 @@ public class ReminderDetails extends javax.swing.JFrame {
         jXTable_Debt_Reminder.setFont(new java.awt.Font("Tahoma", 1, 14));
         jXTable_Debt_Reminder.setGridColor(new java.awt.Color(0, 204, 0));
         jXTable_Debt_Reminder.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());
+        jXTable_Debt_Reminder.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -138,8 +142,8 @@ public class ReminderDetails extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("   DEBT   ", jPanel3);
@@ -185,8 +189,8 @@ public class ReminderDetails extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -246,6 +250,8 @@ public class ReminderDetails extends javax.swing.JFrame {
                 dt.addRow((Vector) dbdata[0].get(j));
                 j++;
             }
+            TableColumnAdjuster tc = new TableColumnAdjuster(jXTable_Mort); 
+            tc.adjustColumns();
         } else if (sourceTabbedPane.getTitleAt(index).trim().equalsIgnoreCase("DEBT")) {
 
             DefaultTableModel dt2 = (DefaultTableModel) jXTable_Debt_Reminder.getModel();
@@ -266,6 +272,8 @@ public class ReminderDetails extends javax.swing.JFrame {
                 dt2.addRow((Vector) dbdata[0].get(j));
                 j++;
             }
+             TableColumnAdjuster tc = new TableColumnAdjuster(jXTable_Debt_Reminder); 
+            tc.adjustColumns();
         }
     }//GEN-LAST:event_jTabbedPane1StateChanged
 

@@ -254,7 +254,7 @@ public class SetReminderForMortAndDebt extends javax.swing.JFrame {
             }
             if(remend_opt.equalsIgnoreCase("debt"))
             {
-                MyMain.sSet_Reminder_for_Debt_str = expDateString+" "+NewJFrame.TIME_FOR_ALL_REMINDER_FROM_CONFIG;
+                MyMain.sSet_Reminder_for_Debt_str = expDateString+" "+LoginScreen.TIME_FOR_ALL_REMINDER_FROM_CONFIG;
                 System.out.println("MyMain.sSet_Reminder_for_Debt_str : "+MyMain.sSet_Reminder_for_Debt_str);
                 MyMain.jRadioButton_remend_debt_norm.setSelected(false);
                 MyMain.jRadioButton_remend_debt_cust.setSelected(true);
@@ -262,7 +262,7 @@ public class SetReminderForMortAndDebt extends javax.swing.JFrame {
             }
             else
             {
-                MyMain.sSet_Reminder_for_Mortgage = expDateString+" "+NewJFrame.TIME_FOR_ALL_REMINDER_FROM_CONFIG;
+                MyMain.sSet_Reminder_for_Mortgage = expDateString+" "+LoginScreen.TIME_FOR_ALL_REMINDER_FROM_CONFIG;
                 System.out.println("MyMain.sSet_Reminder_for_Mortgage : "+MyMain.sSet_Reminder_for_Mortgage);
                 MyMain.jRadioButton_remend_mort_norm.setSelected(false);
                 MyMain.jRadioButton_remend_mort_cust.setSelected(true);
@@ -301,11 +301,11 @@ public class SetReminderForMortAndDebt extends javax.swing.JFrame {
             
             if(remend_opt.equalsIgnoreCase("debt"))
             {
-                MyMain.sSet_Reminder_for_Debt_str = Custom_remend_Date+" "+NewJFrame.TIME_FOR_ALL_REMINDER_FROM_CONFIG;
+                MyMain.sSet_Reminder_for_Debt_str = Custom_remend_Date+" "+LoginScreen.TIME_FOR_ALL_REMINDER_FROM_CONFIG;
             }
             else
             {
-                MyMain.sSet_Reminder_for_Mortgage = Custom_remend_Date+" "+NewJFrame.TIME_FOR_ALL_REMINDER_FROM_CONFIG;
+                MyMain.sSet_Reminder_for_Mortgage = Custom_remend_Date+" "+LoginScreen.TIME_FOR_ALL_REMINDER_FROM_CONFIG;
             }
         }
     }//GEN-LAST:event_jDatechoose_Cuest_rem_datePropertyChange

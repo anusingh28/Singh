@@ -40,10 +40,11 @@ public class CheckLicense extends javax.swing.JFrame {
        // System.out.println(MyCrypto.encrypt("2dummy"));
         try{
         System.out.println(getHW());
+        value = null;
         value = WinRegistry.readString(WinRegistry.HKEY_LOCAL_MACHINE, "SOFTWARE\\MYLIC\\sub", "val");
         if (value != null) 
         {
-        
+            System.out.println("Value : "+value);
             sLastUsed = WinRegistry.readString(WinRegistry.HKEY_LOCAL_MACHINE, "SOFTWARE\\MYLIC\\sub", "lastused");
             String dec = MyCrypto.decrypt(MyCrypto.decrypt(value));
             System.out.println("dec : "+MyCrypto.decrypt(dec));
@@ -54,7 +55,7 @@ public class CheckLicense extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(CheckLicense.this, "HOST VERIFIED, LICENSE ALREADY", "License Check", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("HOST VERIFIED, LICENSE ALREADY");
                 this.dispose();
-                new NewJFrame().setVisible(true);
+                new LoginScreen().setVisible(true);
             } else {
                 System.out.println("INVALID HOST");
                 JOptionPane.showMessageDialog(CheckLicense.this, "HOST VERIFIED, LICENSE ALREADY", "License Error", JOptionPane.ERROR_MESSAGE);

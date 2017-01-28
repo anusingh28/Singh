@@ -3,6 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -95,8 +96,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="55" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jTabbedPane1" min="-2" pref="420" max="-2" attributes="0"/>
-                  <EmptySpace pref="97" max="32767" attributes="0"/>
+                  <Component id="jTabbedPane1" min="-2" pref="471" max="-2" attributes="0"/>
+                  <EmptySpace pref="46" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="jButton2" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
@@ -129,14 +130,15 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane6" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jScrollPane6" alignment="0" pref="978" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
-                          <Component id="jScrollPane6" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jScrollPane6" min="-2" pref="333" max="-2" attributes="0"/>
+                          <EmptySpace pref="60" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -163,7 +165,7 @@
                             <Column editable="true" title="Date of Reminder" type="java.lang.String"/>
                           </Table>
                         </Property>
-                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" preCode="jXTable_Mort.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 14));&#xa;jXTable_Mort.setGridColor(new java.awt.Color(0, 204, 0));&#xa;jXTable_Mort.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());">
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" preCode="jXTable_Mort.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 14));&#xa;jXTable_Mort.setGridColor(new java.awt.Color(0, 204, 0));&#xa;jXTable_Mort.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());" postCode="jXTable_Mort.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);">
                           <TableColumnModel selectionModel="0">
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
@@ -242,8 +244,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jScrollPane4" min="-2" pref="496" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jScrollPane4" min="-2" pref="325" max="-2" attributes="0"/>
+                          <EmptySpace pref="68" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -268,7 +270,7 @@
                             <Column editable="true" title="Date of Reminder" type="java.lang.Object"/>
                           </Table>
                         </Property>
-                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" preCode="jXTable_Debt_Reminder.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 14));&#xa;jXTable_Debt_Reminder.setGridColor(new java.awt.Color(0, 204, 0));" postCode="jXTable_Debt_Reminder.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());">
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" preCode="jXTable_Debt_Reminder.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 14));&#xa;jXTable_Debt_Reminder.setGridColor(new java.awt.Color(0, 204, 0));" postCode="jXTable_Debt_Reminder.getTableHeader().setDefaultRenderer(new SimpleHeaderRenderer());&#xa;jXTable_Debt_Reminder.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);">
                           <TableColumnModel selectionModel="0">
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>

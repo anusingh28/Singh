@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author sijitend
  */
-public class NewJFrame72 extends javax.swing.JFrame {
+public class AddNewExpense extends javax.swing.JFrame {
 
 
     static String Expense_Date;
@@ -40,7 +40,7 @@ public class NewJFrame72 extends javax.swing.JFrame {
  /**
      * Creates new form NewJFrame3
      */
-    public NewJFrame72() {
+    public AddNewExpense() {
 
         initComponents();
 
@@ -291,7 +291,6 @@ public class NewJFrame72 extends javax.swing.JFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jTextField_involved_person)
                                                 .addGap(3, 3, 3)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jXLabel_exp_date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jDatechoose_exp_Date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -466,7 +465,7 @@ public String toMyString() {
 //    Matcher m = r.matcher(text);
 //    if (!m.matches())
 //    {
-//      JOptionPane.showMessageDialog(NewJFrame72.this,"Error", "Validation", JOptionPane.WARNING_MESSAGE);
+//      JOptionPane.showMessageDialog(AddNewExpense.this,"Error", "Validation", JOptionPane.WARNING_MESSAGE);
 //    }
     
   }

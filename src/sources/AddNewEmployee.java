@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author sijitend
  */
-public  class NewJFrame71 extends javax.swing.JFrame {
+public  class AddNewEmployee extends javax.swing.JFrame {
 
     static String UserID;
     public static MyMain iClass;
@@ -35,7 +35,7 @@ public  class NewJFrame71 extends javax.swing.JFrame {
     }
 
     public static void setFirst_Name(String First_Name) {
-        NewJFrame3.First_Name = First_Name;
+        AddNewCustomer.First_Name = First_Name;
     }
 
     public static String getLast_Name() {
@@ -43,7 +43,7 @@ public  class NewJFrame71 extends javax.swing.JFrame {
     }
 
     public static void setLast_Name(String Last_Name) {
-        NewJFrame3.Last_Name = Last_Name;
+        AddNewCustomer.Last_Name = Last_Name;
     }
 
     public static String getFatherName() {
@@ -51,7 +51,7 @@ public  class NewJFrame71 extends javax.swing.JFrame {
     }
 
     public static void setFatherName(String FatherName) {
-        NewJFrame3.FatherName = FatherName;
+        AddNewCustomer.FatherName = FatherName;
     }
 
     public static String getMobile() {
@@ -59,7 +59,7 @@ public  class NewJFrame71 extends javax.swing.JFrame {
     }
 
     public static void setMobile(String Mobile) {
-        NewJFrame3.Mobile = Mobile;
+        AddNewCustomer.Mobile = Mobile;
     }
 
     public static String getVill() {
@@ -67,27 +67,27 @@ public  class NewJFrame71 extends javax.swing.JFrame {
     }
 
     public static void setVill(String Vill) {
-        NewJFrame3.Vill = Vill;
+        AddNewCustomer.Vill = Vill;
     }
 
   
 
     public static void setTown(String Town) {
-        NewJFrame3.Town = Town;
+        AddNewCustomer.Town = Town;
     }
 
 
     public static void setDist(String Dist) {
-        NewJFrame3.Dist = Dist;
+        AddNewCustomer.Dist = Dist;
     }
 
 
     public static void setLandmark(String Landmark) {
-        NewJFrame3.Landmark = Landmark;
+        AddNewCustomer.Landmark = Landmark;
     }
 
     public static void setPINCODE(int PINCODE) {
-        NewJFrame3.PINCODE = PINCODE;
+        AddNewCustomer.PINCODE = PINCODE;
     }
 
     public static String getAddress() {
@@ -95,12 +95,12 @@ public  class NewJFrame71 extends javax.swing.JFrame {
     }
 
     public static void setAddress(String Address) {
-        NewJFrame3.Address = Address;
+        AddNewCustomer.Address = Address;
     }
 
    
     public static void setCountry(String Country) {
-        NewJFrame3.Country = Country;
+        AddNewCustomer.Country = Country;
     }
 
     public String getUserID() {
@@ -120,9 +120,9 @@ public  class NewJFrame71 extends javax.swing.JFrame {
     static String Final_Payment="NA";
     static String ExEmployee="No";
     /**
-     * Creates new form NewJFrame3
+     * Creates new form AddNewCustomer
      */
-    public NewJFrame71() {
+    public AddNewEmployee() {
 
         initComponents();
 
@@ -368,7 +368,6 @@ public  class NewJFrame71 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField_Add_Name)
                         .addGap(5, 5, 5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jXLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField_Sal_Name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -393,11 +392,11 @@ public  class NewJFrame71 extends javax.swing.JFrame {
 
         Last_Name = jTextField_L_Name.getText();
         FatherName = jTextField_Father_Name.getText();
-        Mobile = jTextField_Vill_Name.getText();
+        Mobile = jTextField__emp_Mob_Name.getText();
      
         Vill = jTextField_Vill_Name.getText();
         Address = jTextField_Add_Name.getText();
-        Salary = jTextField__emp_Mob_Name.getText();
+        Salary = jTextField_Sal_Name.getText();
        
         String ret;
         String[] sa = new String[9];
@@ -458,7 +457,7 @@ public  class NewJFrame71 extends javax.swing.JFrame {
     }//GEN-LAST:event_myclose
 
     private void jTextField__emp_Mob_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField__emp_Mob_NameFocusLost
-         if(!jTextField__emp_Mob_Name.getText().isEmpty() &&  !jTextField__emp_Mob_Name.getText().matches("^\\d+$"))
+         if(!jTextField__emp_Mob_Name.getText().isEmpty() &&  !jTextField__emp_Mob_Name.getText().matches("^\\d{10}$"))
         {
             JOptionPane.showMessageDialog(this, "Incorrect Mobile Number", "Invalid Mobile", JOptionPane.WARNING_MESSAGE);
             jTextField__emp_Mob_Name.setText("");
@@ -468,7 +467,7 @@ public  class NewJFrame71 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField__emp_Mob_NameFocusLost
 
     private void jTextField_f_NameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_f_NameFocusLost
-           if(!jTextField_f_Name.getText().isEmpty() &&  !jTextField_f_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
+         if(!jTextField_f_Name.getText().isEmpty() &&  !jTextField_f_Name.getText().matches("^([a-zA-Z]{3,30}\\s*)+$"))
         {
             JOptionPane.showMessageDialog(this, "Incorrect First Name", "Invalid Name", JOptionPane.WARNING_MESSAGE);
             jTextField_f_Name.setText("");
@@ -609,7 +608,7 @@ public String toMyString() {
 //    Matcher m = r.matcher(jt.getText());
 //    if (!m.matches())
 //    {
-//      JOptionPane.showMessageDialog(NewJFrame71.this,"Error", "Validation", JOptionPane.WARNING_MESSAGE);
+//      JOptionPane.showMessageDialog(AddNewEmployee.this,"Error", "Validation", JOptionPane.WARNING_MESSAGE);
 //      jt.setText("");
 //    }
 //    
